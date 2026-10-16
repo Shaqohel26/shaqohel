@@ -2,26 +2,242 @@
 <html lang="so">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soomaali Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShaqoHel | Shaqooyin iyo Adeegyo</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#17212b}
-header{background:#087f5b;color:white;padding:22px 16px}
+header{background:#087f5b;color:white;padding:24px 16px}
 header h1{margin:0 0 8px}
-header p{margin:0}
-main{max-width:1000px;margin:auto;padding:18px}
-.search{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;font-size:16px}
+header p{margin:0;line-height:1.6}
+main{max-width:1050px;margin:auto;padding:18px}
 h2{font-size:21px}
-.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.cat{border:0;border-radius:12px;background:white;padding:17px 5px;
-font-size:15px;cursor:pointer;box-shadow:0 2px 8px #0000000b}
-.cat span{display:block;font-size:27px;margin-bottom:8px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d5dbe0;border-radius:9px;font-size:15px;background:white}
+label{display:block;font-size:14px;font-weight:bold;margin:10px 0 6px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.cat{border:0;border-radius:12px;background:white;padding:14px 4px;font-size:13px;cursor:pointer;box-shadow:0 2px 8px #0001}
+.cat span{display:block;font-size:25px;margin-bottom:7px}
 .cat.active{outline:2px solid #087f5b;background:#e5f6ef}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
-button.primary{background:#087f5b;color:white;border:0;padding:13px 16px;
-border-radius:9px;cursor:pointer;font-size:15px}
-.listings{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.item{background:white;border-radius:12px;paddin
-      </body>
-      </html>
+button{cursor:pointer}
+.primary{background:#087f5b;color:white;border:0;padding:13px 16px;border-radius:9px;font-size:15px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:9px;margin:15px 0}
+.listings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.item{background:white;padding:15px;border-radius:12px;box-shadow:0 2px 8px #0001;overflow-wrap:anywhere}
+.item h3{margin:8px 0}
+.tag{display:inline-block;background:#e5f6ef;color:#087f5b;padding:5px 8px;border-radius:6px;font-size:12px}
+.muted{color:#64717d;font-size:14px;line-height:1.6}
+form{background:white;padding:16px;border-radius:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+footer{text-align:center;padding:25px;color:#64717d;font-size:13px}
+@media(max-width:600px){.listings{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🟢 ShaqoHel</h1>
+  <p>Shaqooyin, guryo kiro ah iyo adeegyada aad uga baahan tahay xaafaddaada.</p>
+</header>
+
+<main>
+  <h2>Maxaad raadinaysaa?</h2>
+  <div class="categories" id="categories">
+    <button class="cat active" data-cat="Dhammaan"><span>🔎</span>Dhammaan</button>
+    <button class="cat" data-cat="Shaqo"><span>💼</span>Shaqooyin</button>
+    <button class="cat" data-cat="Guri kiro"><span>🏠</span>Guryo kiro</button>
+    <button class="cat" data-cat="Cilaansar"><span>💇</span>Cilaansar</button>
+    <button class="cat" data-cat="Dhar tolid"><span>🧵</span>Dhar tolid</button>
+    <button class="cat" data-cat="Nadaafad"><span>🧹</span>Nadaafad</button>
+    <button class="cat" data-cat="Cunto karin"><span>🍲</span>Cunto karin</button>
+    <button class="cat" data-cat="Farsamo"><span>🔧</span>Farsamayaqaan</button>
+    <button class="cat" data-cat="Adeeg kale"><span>🛠️</span>Adeegyo kale</button>
+  </div>
+
+  <div class="actions">
+    <button class="primary" onclick="document.getElementById('postForm').scrollIntoView({behavior:'smooth'})">＋ Soo geli xayeysiis</button>
+  </div>
+
+  <h2>Raadi xayeysiisyada</h2>
+  <div class="filters">
+    <input id="search" placeholder="Raadi shaqo, guri ama adeeg...">
+    <input id="district" placeholder="Degmada">
+    <input id="neighborhood" placeholder="Xaafadda">
+  </div>
+  <p class="muted" id="count"></p>
+  <div class="listings" id="listings"></div>
+
+  <h2 id="formTitle">Soo geli shaqo, guri ama adeeg</h2>
+  <p class="muted">Buuxi faahfaahinta xayeysiiskaaga.</p>
+
+  <form id="postForm">
+    <label>Qaybta xayeysiiska</label>
+    <select id="category" required>
+      <option value="Shaqo">Shaqo</option>
+      <option value="Guri kiro">Guri kiro</option>
+      <option value="Cilaansar">Cilaansar iyo qurxin</option>
+      <option value="Dhar tolid">Dhar tolid</option>
+      <option value="Nadaafad">Nadaafad</option>
+      <option value="Cunto karin">Cunto karin</option>
+      <option value="Farsamo">Farsamayaqaan</option>
+      <option value="Adeeg kale">Adeeg kale</option>
+    </select>
+
+    <label>Magaca xayeysiiska ama shaqada</label>
+    <input id="title" required maxlength="100" placeholder="Tusaale: Guri kiro ah ama koronto-yaqaan">
+
+    <div class="grid2">
+      <div>
+        <label>Magaalada</label>
+        <input id="city" required placeholder="Tusaale: Muqdisho">
+      </div>
+      <div>
+        <label>Degmada</label>
+        <input id="postDistrict" required placeholder="Tusaale: Hodan">
+      </div>
+    </div>
+
+    <label>Xaafadda</label>
+    <input id="postNeighborhood" required placeholder="Magaca xaafadda">
+
+    <div class="grid2">
+      <div>
+        <label>Qiimaha ama mushaharka</label>
+        <input id="price" placeholder="Tusaale: $150 bishii">
+      </div>
+      <div>
+        <label>Nooca adeegga</label>
+        <select id="kind">
+          <option>Caadi</option>
+          <option>Hal maalin</option>
+          <option>Joogto</option>
+          <option>Waqti-dhiman</option>
+        </select>
+      </div>
+    </div>
+
+    <label>Faahfaahin</label>
+    <textarea id="description" rows="4" required maxlength="1500" placeholder="Sharax shaqada, guriga ama adeegga..."></textarea>
+
+    <label>Lambarka xiriirka</label>
+    <input id="contact" type="tel" required maxlength="30" placeholder="Lambarka lagala soo xiriirayo">
+
+    <label>Magaca qofka ama shirkadda</label>
+    <input id="owner" required maxlength="80" placeholder="Magacaaga ama shirkaddaada">
+
+    <p class="muted">Tijaabadan, sawirrada, CV-yada iyo shahaadooyinka weli lama soo gelin karo.</p>
+    <button class="primary" type="submit">Soo geli xayeysiiska</button>
+  </form>
+</main>
+
+<footer>ShaqoHel — Fursado iyo adeegyo ku dhow xaafaddaada.</footer>
+
+<script>
+const demo = [
+ {id:1,category:"Shaqo",title:"Shaqaale xafiis",city:"Muqdisho",district:"Hodan",neighborhood:"Taleex",price:"Mushahar la isla ogaanayo",kind:"Joogto",description:"Shaqo xafiis. Faahfaahinta kala xiriir qofka xayeysiiska dhigay.",contact:"Tusaale",owner:"ShaqoHel"},
+ {id:2,category:"Guri kiro",title:"Guri kiro ah",city:"Muqdisho",district:"Wadajir",neighborhood:"Xaafad tusaale ah",price:"$150 bishii",kind:"Caadi",description:"Tusaale tijaabo ah oo muujinaya sida guryaha loo soo bandhigayo.",contact:"Tusaale",owner:"Milkiile tusaale ah"},
+ {id:3,category:"Farsamo",title:"Koronto-yaqaan",city:"Muqdisho",district:"Yaqshiid",neighborhood:"Xaafad tusaale ah",price:"Qiime la isla ogaanayo",kind:"Hal maalin",description:"Adeeg koronto. Tani waa xayeysiis tusaale ah, ma aha adeeg la xaqiijiyey.",contact:"Tusaale",owner:"Farsamayaqaan tusaale ah"}
+];
+
+let ads = [];
+try {
+  ads = JSON.parse(localStorage.getItem("shaqohel_ads") || "[]");
+  if (!Array.isArray(ads)) ads = [];
+} catch(e) { ads = []; }
+
+let activeCategory = "Dhammaan";
+const $ = id => document.getElementById(id);
+
+function render() {
+  const q = $("search").value.toLowerCase().trim();
+  const d = $("district").value.toLowerCase().trim();
+  const n = $("neighborhood").value.toLowerCase().trim();
+  const all = [...ads, ...demo];
+
+  const filtered = all.filter(a =>
+    (activeCategory === "Dhammaan" || a.category === activeCategory) &&
+    (!q || [a.title,a.category,a.city,a.district,a.neighborhood,a.description,a.owner].join(" ").toLowerCase().includes(q)) &&
+    (!d || a.district.toLowerCase().includes(d)) &&
+    (!n || a.neighborhood.toLowerCase().includes(n))
+  );
+
+  $("count").textContent = filtered.length + " xayeysiis ayaa la helay.";
+
+  $("listings").innerHTML = filtered.length ? filtered.map(a => `
+    <article class="item">
+      <span class="tag">${escapeHTML(a.category)}</span>
+      <h3>${escapeHTML(a.title)}</h3>
+      <p class="muted">📍 ${escapeHTML(a.city)} · ${escapeHTML(a.district)} · ${escapeHTML(a.neighborhood)}</p>
+      <p><strong>${escapeHTML(a.price || "Qiime la weydiinayo")}</strong></p>
+      <p class="muted">${escapeHTML(a.description)}</p>
+      <p class="muted">${escapeHTML(a.kind)} · ${escapeHTML(a.owner)}</p>
+      <button class="primary" onclick="showContact('${String(a.id)}')">Xiriir</button>
+    </article>
+  `).join("") : '<p class="muted">Wax xayeysiis ah lagama helin raadintaas.</p>';
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[c]);
+}
+
+function showContact(id) {
+  const a = [...ads,...demo].find(x => String(x.id) === String(id));
+  if (!a) return;
+  alert("Xiriir: " + a.contact + "\nMagac: " + a.owner +
+        "\nFiiro: xayeysiisyada tusaalaha ah ma laha xiriir dhab ah.");
+}
+
+document.querySelectorAll(".cat").forEach(button => {
+  button.addEventListener("click", () => {
+    activeCategory = button.dataset.cat;
+    document.querySelectorAll(".cat").forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
+    render();
+  });
+});
+
+["search","district","neighborhood"].forEach(id => {
+  $(id).addEventListener("input", render);
+});
+
+$("postForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const ad = {
+    id: Date.now(),
+    category:$("category").value,
+    title:$("title").value.trim(),
+    city:$("city").value.trim(),
+    district:$("postDistrict").value.trim(),
+    neighborhood:$("postNeighborhood").value.trim(),
+    price:$("price").value.trim(),
+    kind:$("kind").value,
+    description:$("description").value.trim(),
+    contact:$("contact").value.trim(),
+    owner:$("owner").value.trim()
+  };
+
+  ads.unshift(ad);
+  try {
+    localStorage.setItem("shaqohel_ads", JSON.stringify(ads));
+  } catch(e) {
+    ads.shift();
+    alert("Kaydinta browser-ka waa fashilantay. Isku day inaad boos bannayso.");
+    return;
+  }
+
+  $("postForm").reset();
+  activeCategory = "Dhammaan";
+  document.querySelectorAll(".cat").forEach(b =>
+    b.classList.toggle("active", b.dataset.cat === activeCategory)
+  );
+  render();
+  $("listings").scrollIntoView({behavior:"smooth"});
+  alert("Xayeysiiska waxaa lagu daray tijaabada browser-kan.");
+});
+
+render();
+</script>
+</body>
+</html>
