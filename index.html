@@ -2,382 +2,752 @@
 <html lang="so">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#087f5b">
-<meta name="description" content="ShaqoHel — shaqooyin, guryo kiro, adeegyo iyo cunto.">
-<title>ShaqoHel | Shaqooyin, Adeegyo iyo Cunto</title>
+<meta name="description" content="ShaqoHel — shaqooyin, guryo kiro iyo adeegyo Muqdisho iyo Soomaaliya.">
+<title>ShaqoHel | Shaqooyin, Guryo & Adeegyo</title>
 <style>
-:root{--green:#087f5b;--green2:#066347;--mint:#e7f7ef;--bg:#f4f7f6;--ink:#17212b;--muted:#62716c;--line:#dce6e0;--white:#fff;--shadow:0 8px 24px #12352a0b}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #8dd8b8;outline-offset:2px}a{color:inherit}
-.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
-header{background:linear-gradient(125deg,#075d43,#0a9b70);color:white;padding:22px 0 28px}
-.topline{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.brand{font-size:30px;font-weight:850;letter-spacing:-.7px;margin:0}.brand span{color:#b9f4d7}.tagline{margin:5px 0 0;color:#e6fff2}.header-actions{display:flex;gap:8px;flex-wrap:wrap}.header-actions a{padding:10px 13px;text-decoration:none;border:1px solid #ffffff70;border-radius:10px;font-weight:700}.hero{margin-top:25px;max-width:690px}.hero h2{font-size:clamp(27px,5vw,43px);line-height:1.12;letter-spacing:-1px;margin:0 0 10px}.hero p{margin:0;color:#e6fff2}
-main{padding:20px 0 40px}.section{margin:18px 0 25px;scroll-margin-top:12px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}.section h2{font-size:22px;line-height:1.25;margin:0}.muted{color:var(--muted);font-size:14px}.section-head p{margin:5px 0 0}
-.panel{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
-.categories{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.cat{border:1px solid var(--line);background:white;border-radius:13px;padding:12px 8px;min-height:90px;text-align:center;font-weight:700;color:var(--ink)}.cat span{display:block;font-size:25px;margin-bottom:4px}.cat.active{background:var(--mint);border-color:var(--green);color:var(--green)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;border-radius:10px;padding:11px 15px;font-weight:750;text-decoration:none}.primary{background:var(--green);color:white}.primary:hover{background:var(--green2)}.secondary{background:white;border:1px solid var(--green);color:var(--green)}.soft{background:var(--mint);color:var(--green)}.btn-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
-input,select,textarea{width:100%;border:1px solid #cfdcd5;background:white;color:var(--ink);border-radius:10px;padding:11px 12px;min-width:0}label{display:block;font-size:14px;font-weight:750;margin:10px 0 5px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}.full{grid-column:1/-1}
-.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:9px;margin:12px 0}.listings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.listing{background:white;border:1px solid var(--line);border-radius:14px;padding:15px;overflow-wrap:anywhere;box-shadow:var(--shadow)}.listing h3{font-size:17px;margin:9px 0 4px}.listing p{margin:7px 0}.badge{display:inline-block;border-radius:7px;background:var(--mint);color:var(--green);padding:4px 8px;font-size:12px;font-weight:800}.listing-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.listing-actions .btn{padding:9px 11px;font-size:14px}
-.pos-shell{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#f7faf8}.pos-nav{display:flex;gap:6px;flex-wrap:wrap;padding:10px;background:white;border-bottom:1px solid var(--line)}.pos-tab{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;font-weight:750}.pos-tab.active{background:var(--mint);border-color:#84c6a9;color:var(--green)}.table-badge{margin-left:auto;align-self:center;background:#edf5f1;border-radius:20px;padding:7px 10px;font-size:13px;font-weight:750}.pos-body{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(0,1.6fr);gap:12px;padding:12px}.receipt,.catalog,.pos-extra{background:white;border:1px solid var(--line);border-radius:12px;padding:13px;min-width:0}.receipt h3,.pos-extra h3{margin:0 0 8px}.receipt-line{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:7px;align-items:center;border-bottom:1px solid #edf1ee;padding:9px 0;font-size:14px}.small-btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:4px 8px}.totals{padding-top:9px}.total-row{display:flex;justify-content:space-between;gap:10px;padding:5px 0}.grand{border-top:1px solid var(--line);margin-top:5px;padding-top:10px;font-size:19px;font-weight:850}.product-cats,.course-filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}.product-cats button,.course-filters button{border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:white;font-weight:700}.product-cats button.active,.course-filters button.active{background:var(--mint);border-color:#84c6a9;color:var(--green)}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.product{border:1px solid var(--line);background:white;border-radius:11px;overflow:hidden;text-align:left;padding:0;display:flex;flex-direction:column;min-width:0}.product-icon{background:#f0f7f3;text-align:center;font-size:30px;padding:15px}.product-info{padding:10px;display:grid;gap:4px}.product-info strong{overflow-wrap:anywhere}.product-info small{color:var(--green);font-weight:800}.pos-extra{margin:0 12px 12px}.tables{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.notice{background:#fff8df;border:1px solid #efdfa8;border-radius:11px;padding:12px;color:#66551d;font-size:13px;margin-top:12px}.hidden{display:none!important}.empty{padding:18px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
-footer{padding:25px 0;text-align:center;color:var(--muted);font-size:13px}
-@media(max-width:760px){.categories{grid-template-columns:repeat(3,minmax(0,1fr))}.listings{grid-template-columns:repeat(2,minmax(0,1fr))}.pos-body{grid-template-columns:1fr}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.table-badge{margin-left:0}}
-@media(max-width:520px){.wrap{width:calc(100% - 20px)}header{padding:18px 0 23px}.brand{font-size:26px}.hero{margin-top:20px}.categories{grid-template-columns:repeat(2,minmax(0,1fr))}.listings{grid-template-columns:1fr}.filters,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.tables{grid-template-columns:repeat(3,minmax(0,1fr))}.pos-nav{gap:5px}.pos-tab{padding:8px 10px}.panel{padding:12px}}
+:root{--green:#087f5b;--deep:#064b38;--mint:#e8f7ef;--bg:#f5f8f6;--ink:#18251f;--muted:#66756d;--line:#dce7e0;--white:#fff;--shadow:0 12px 35px #12352a0d}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:18px}body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg)}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}a{color:inherit}input,select,textarea{width:100%;padding:12px;border:1px solid #cbd9d0;border-radius:11px;background:white;color:var(--ink)}input:focus,select:focus,textarea:focus,button:focus-visible{outline:3px solid #9ce0c0;outline-offset:2px}label{display:block;font-weight:700;font-size:14px;margin:12px 0 5px}.wrap{width:min(1160px,calc(100% - 30px));margin:auto}
+header{background:radial-gradient(ellipse at 85% 0,#19a979 0,transparent 38%),linear-gradient(125deg,#064b38,#087f5b);color:white;padding:18px 0 54px}.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.brand{font-size:29px;font-weight:900;letter-spacing:-1px;text-decoration:none}.brand span{color:#baf4d7}.navlinks{display:flex;gap:8px;flex-wrap:wrap}.navlinks a{color:white;text-decoration:none;border:1px solid #ffffff55;padding:8px 12px;border-radius:10px;font-weight:700;font-size:14px}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center;padding-top:45px}.eyebrow{display:inline-block;background:#ffffff1c;border:1px solid #ffffff40;padding:6px 11px;border-radius:30px;font-size:13px;font-weight:800}.hero h1{font-size:clamp(34px,5.6vw,58px);line-height:1.07;letter-spacing:-1.8px;margin:15px 0}.hero p{max-width:650px;color:#e3fff0;font-size:18px}.hero-card{background:#ffffff14;border:1px solid #ffffff36;border-radius:22px;padding:22px;backdrop-filter:blur(5px)}.hero-card strong{font-size:18px}.hero-card p{font-size:14px;margin:8px 0;color:#e5fff1}.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.quick a{background:white;color:var(--green);text-align:center;text-decoration:none;font-weight:800;border-radius:12px;padding:12px}
+main{padding:28px 0 48px}.section{margin:0 0 28px}.head{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}.head h2{margin:0;font-size:25px;letter-spacing:-.5px}.muted{color:var(--muted);font-size:14px}.head p{margin:4px 0 0}.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:var(--shadow)}.categories{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.cat{background:white;border:1px solid var(--line);border-radius:14px;padding:14px 8px;text-align:center;font-weight:800;color:var(--ink)}.cat span{display:block;font-size:27px}.cat.active{background:var(--mint);border-color:var(--green);color:var(--green)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;border-radius:10px;padding:11px 15px;text-decoration:none;font-weight:800}.primary{background:var(--green);color:white}.primary:hover{background:var(--deep)}.secondary{background:white;border:1px solid var(--green);color:var(--green)}.soft{background:var(--mint);color:var(--green)}.btnrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:9px;margin:12px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{background:white;border:1px solid var(--line);border-radius:15px;padding:16px;box-shadow:var(--shadow);overflow-wrap:anywhere}.card h3{font-size:18px;line-height:1.3;margin:9px 0 5px}.card p{margin:7px 0}.badge{display:inline-block;background:var(--mint);color:var(--green);font-size:12px;font-weight:850;border-radius:7px;padding:4px 8px;margin:0 5px 4px 0}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 13px}.full{grid-column:1/-1}.notice{margin-top:13px;background:#fff7dc;border:1px solid #eddfa9;color:#6a571d;border-radius:12px;padding:12px;font-size:13px}.empty{padding:22px;text-align:center;border:1px dashed var(--line);border-radius:12px;color:var(--muted);grid-column:1/-1}.hidden{display:none!important}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}.tab{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;font-weight:800}.tab.active{background:var(--mint);border-color:#8ac8a9;color:var(--green)}.pos{display:grid;grid-template-columns:.85fr 1.4fr;gap:14px}.receipt,.catalog{border:1px solid var(--line);border-radius:13px;padding:14px;min-width:0}.receiptline{display:grid;grid-template-columns:30px 1fr auto;gap:7px;align-items:center;padding:9px 0;border-bottom:1px solid #edf1ee;font-size:14px}.small{border:1px solid var(--line);background:white;border-radius:8px;padding:3px 9px}.totalrow{display:flex;justify-content:space-between;padding:6px 0}.grand{border-top:1px solid var(--line);margin-top:6px;padding-top:12px;font-size:20px;font-weight:900}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.product{border:1px solid var(--line);border-radius:12px;background:white;overflow:hidden;text-align:left;padding:0;display:flex;flex-direction:column}.producticon{font-size:31px;text-align:center;background:#eef7f1;padding:15px}.productinfo{padding:10px;display:grid;gap:4px}.productinfo small{color:var(--green);font-weight:900}.tables{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.tablebtn{padding:13px 5px;border:1px solid var(--line);border-radius:10px;background:white;font-weight:800}.tablebtn.active{background:var(--mint);border-color:var(--green);color:var(--green)}footer{background:#073f30;color:#d9f5e7;padding:26px 0;text-align:center;font-size:13px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hero-card{max-width:550px}.categories{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pos{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters input:first-child{grid-column:1/-1}}
+@media(max-width:520px){.wrap{width:calc(100% - 20px)}header{padding-bottom:35px}.brand{font-size:25px}.hero{padding-top:30px}.hero h1{font-size:38px}.hero p{font-size:16px}.categories{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:1fr}.filters input:first-child{grid-column:auto}.panel{padding:13px}.tables{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
 <header>
  <div class="wrap">
-  <div class="topline">
-   <div><h1 class="brand">🟢 Shaqo<span>Hel</span></h1><p class="tagline">Shaqooyin, guryo kiro, adeegyo iyo cunto — hal meel.</p></div>
-   <nav class="header-actions" aria-label="Navigation"><a href="#jobs">Shaqo raadi</a><a href="#ads">Adeegyo & guryo</a><a href="#post">Soo geli xayeysiis</a><a href="#businesses">Ganacsatada</a><a href="#pos">Makhaayad POS</a></nav>
+  <nav class="nav"><a class="brand" href="#">🟢 Shaqo<span>Hel</span></a><div class="navlinks"><a href="#jobs">Shaqooyin</a><a href="#ads">Xayeysiisyo</a><a href="#post">Soo geli xayeysiis</a><a href="#pos">POS Makhaayad</a></div></nav>
+  <div class="hero"><div><span class="eyebrow">HAL MEEL • FURSADO BADAN</span><h1>Fursaddaada xigta ka hel <span style="color:#baf4d7">ShaqoHel.</span></h1><p>Raadi shaqo, guri kiro ama adeeg kuu dhow. Haddii aad ganacsi leedahay, si fudud u soo geli xayeysiiskaaga.</p><div class="btnrow"><a class="btn" style="background:white;color:var(--green)" href="#jobs">🔎 Shaqo raadi</a><a class="btn" style="border:1px solid #ffffff80;color:white" href="#post">＋ Xayeysiis geli</a></div></div>
+   <div class="hero-card"><strong>👋 Ku soo dhawoow ShaqoHel</strong><p>Waxaan isku keenaynaa shaqo-doonayaasha, ganacsatada iyo dadka adeegyada raadinaya.</p><div class="quick"><a href="#jobs">💼 Shaqo</a><a href="#ads">🏠 Guryo & adeegyo</a><a href="#post">📣 Xayeysiis geli</a><a href="#pos">🍽️ POS makhaayad</a></div></div>
   </div>
-  <div class="hero"><h2>Fursaddaada xigta ka hel xaafaddaada.</h2><p>Raadi shaqo, guri ama adeeg. Ganacsatada iyo makhaayaduhuna si fudud ayay u maamuli karaan xayeysiisyada iyo dalabyada.</p></div>
  </div>
 </header>
 <main class="wrap">
-<section class="section" id="browse">
- <div class="section-head"><div><h2>Maxaad raadinaysaa?</h2><p class="muted">Dooro qayb si aad u shaandhayso xayeysiisyada.</p></div></div>
- <div class="categories" id="categories">
-  <button class="cat active" data-cat="Dhammaan"><span>🔎</span>Dhammaan</button>
-  <button class="cat" data-cat="Shaqo"><span>💼</span>Shaqooyin</button>
-  <button class="cat" data-cat="Guri kiro"><span>🏠</span>Guryo kiro</button>
-  <button class="cat" data-cat="Cilaansar"><span>💇</span>Cilaansar</button>
-  <button class="cat" data-cat="Dhar tolid"><span>🧵</span>Dhar tolid</button>
-  <button class="cat" data-cat="Nadaafad"><span>🧹</span>Nadaafad</button>
-  <button class="cat" data-cat="Cunto karin"><span>🍲</span>Cunto karin</button>
-  <button class="cat" data-cat="Farsamo"><span>🔧</span>Farsamo</button>
-  <button class="cat" data-cat="Makhaayad"><span>🍽️</span>Makhaayado</button>
-  <button class="cat" data-cat="Adeeg kale"><span>🛠️</span>Adeegyo kale</button>
- </div>
- <div class="btn-row"><a class="btn primary" href="#pos">🍽️ Fur POS-ka</a><a class="btn secondary" href="#post">＋ Soo geli xayeysiis</a></div>
-</section>
-
-
+<section class="section" id="browse"><div class="head"><div><h2>Maxaad raadinaysaa?</h2><p class="muted">Taabo qaybta aad rabto.</p></div></div>
+<div class="categories" id="categories">
+<button class="cat active" data-cat="Dhammaan"><span>🔎</span>Dhammaan</button><button class="cat" data-cat="Shaqo"><span>💼</span>Shaqooyin</button><button class="cat" data-cat="Guri kiro"><span>🏠</span>Guryo kiro</button><button class="cat" data-cat="Cilaansar"><span>💇</span>Cilaansar</button><button class="cat" data-cat="Dhar tolid"><span>🧵</span>Dhar tolid</button><button class="cat" data-cat="Nadaafad"><span>🧹</span>Nadaafad</button><button class="cat" data-cat="Cunto karin"><span>🍲</span>Cunto karin</button><button class="cat" data-cat="Farsamo"><span>🔧</span>Farsamo</button><button class="cat" data-cat="Makhaayad"><span>🍽️</span>Makhaayado</button><button class="cat" data-cat="Adeeg kale"><span>🛠️</span>Adeegyo kale</button>
+</div></section>
 <section class="section" id="jobs">
- <div class="section-head"><div><h2>ShaqoHel — Shaqo raadi ama shaqaale qor</h2><p class="muted">Dooro xirfadda aad rabto, kadib ku shaandhee degmada iyo xaafadda. Tusaale ahaan Yaaqshiid, gaar ahaan Towfiiq, waxaa lagu raadin karaa mukef iyo koronto. Shaqooyinka tusaalaha ah si cad ayaa loo calaamadeeyey.</p></div></div>
- <div class="panel">
-  <div class="section-head"><div><h2>🔎 Shaqooyinka bannaan</h2><p class="muted">Raadi shaqo ku habboon xirfaddaada, waxbarashadaada iyo khibraddaada.</p></div></div>
-  <div class="filters"><input id="jobSearch" placeholder="Maxaad rabtaa inaad ku shaqeyso? Tusaale: mukef ama koronto" aria-label="Raadi shaqo ama xirfad"><input id="jobCity" placeholder="Magaalada (tusaale Muqdisho)" aria-label="Magaalada shaqada"><input id="jobDistrict" placeholder="Degmada (tusaale Yaaqshiid)" aria-label="Degmada shaqada"><input id="jobNeighborhood" placeholder="Xaafadda (tusaale Towfiiq)" aria-label="Xaafadda shaqada"><select id="jobType" aria-label="Nooca shaqada"><option value="">Dhammaan noocyada</option><option>Joogto</option><option>Waqti-dhiman</option><option>Qandaraas</option><option>Tababar</option><option>Shaqo bilow ah</option></select></div>
-  <div class="listings" id="jobListings"></div>
- </div>
- <div class="panel" style="margin-top:14px">
-  <div class="section-head"><div><h2>👤 Shaqo-doone isdiiwaangeli</h2><p class="muted">Ku qor xirfadahaaga, waxbarashadaada, shahaadooyinkaaga iyo xiriirkaaga si shirkaduhu kuu tixgeliyaan.</p></div></div>
-  <form id="candidateForm">
-   <div class="form-grid">
-    <div><label for="candidateName">Magaca oo buuxa</label><input id="candidateName" required maxlength="100" placeholder="Magacaaga"></div>
-    <div><label for="candidatePhone">Telefoon / WhatsApp</label><input id="candidatePhone" type="tel" required maxlength="30" placeholder="+252..."></div>
-    <div><label for="candidateCity">Magaalada</label><input id="candidateCity" required placeholder="Tusaale: Muqdisho"></div>
-    <div><label for="candidateDistrict">Degmada aad shaqo ka raadinayso</label><input id="candidateDistrict" required value="Yaaqshiid" placeholder="Tusaale: Yaaqshiid"></div>
-    <div><label for="candidateNeighborhood">Xaafadda aad shaqo ka raadinayso</label><input id="candidateNeighborhood" required value="Towfiiq" placeholder="Tusaale: Towfiiq"></div>
-    <div><label for="candidateRole">Shaqada aad rabto</label><input id="candidateRole" required maxlength="100" placeholder="Tusaale: Xisaabiye, koronto-yaqaan"></div>
-    <div><label for="candidateEducation">Heerka waxbarashada</label><select id="candidateEducation" required><option value="">Dooro heerka</option><option>Dugsi hoose/dhexe</option><option>Dugsi sare</option><option>Shahaado farsamo</option><option>Diploma</option><option>Jaamacad / Bachelor</option><option>Master ama ka sarreeya</option><option>Waxbarasho aan rasmi ahayn</option></select></div>
-    <div><label for="candidateExperience">Khibradda shaqo</label><select id="candidateExperience" required><option value="">Dooro khibradda</option><option>Khibrad ma lihi / shaqo bilow ah</option><option>Ka yar 1 sano</option><option>1–3 sano</option><option>4–6 sano</option><option>7 sano ama ka badan</option></select></div>
-    <div class="full"><label for="candidateSkills">Xirfadaha aad taqaan</label><input id="candidateSkills" required maxlength="500" placeholder="Tusaale: computer, koronto, iib, xisaab, cunto karin"></div>
-    <div class="full"><label for="candidateCertificates">Shahaadooyin / tababaro</label><textarea id="candidateCertificates" rows="2" maxlength="1000" placeholder="Qor shahaadooyinka ama tababarada aad haysato; haddii aadan haysan, ka tag bannaan."></textarea></div>
-    <div class="full"><label for="candidateAbout">Faahfaahin kooban</label><textarea id="candidateAbout" rows="3" maxlength="1200" placeholder="Khibraddaada, waxa aad qaban karto, iyo sababta shaqada aad ugu habboon tahay."></textarea></div>
-   </div>
-   <div class="btn-row"><button class="btn primary" type="submit">Diiwaangeli shaqo-doon</button><button class="btn secondary" type="reset">Nadiifi</button></div>
-   <p id="candidateMessage" class="muted" aria-live="polite"></p>
-  </form>
- </div>
- <div class="panel" style="margin-top:14px">
-  <div class="section-head"><div><h2>🏢 Shirkad ama ganacsi shaqaale qoraya</h2><p class="muted">Shirkaduhu waxay halkan ku qori karaan shaqo bannaan, shuruudaha, mushaharka iyo sida loo codsado.</p></div></div>
-  <form id="employerJobForm">
-   <div class="form-grid">
-    <div><label for="employerCompany">Magaca shirkadda / ganacsiga</label><input id="employerCompany" required maxlength="120"></div>
-    <div><label for="employerContact">Telefoon ama email xiriir</label><input id="employerContact" required maxlength="120" placeholder="Telefoon ama email shaqo"></div>
-    <div><label for="employerTitle">Magaca shaqada</label><input id="employerTitle" required maxlength="120" placeholder="Tusaale: Xisaabiye"></div>
-    <div><label for="employerCity">Magaalada</label><input id="employerCity" required maxlength="100" placeholder="Tusaale: Muqdisho"></div>
-    <div><label for="employerDistrict">Degmada shaqadu taal</label><input id="employerDistrict" required maxlength="100" value="Yaaqshiid" placeholder="Tusaale: Yaaqshiid"></div>
-    <div><label for="employerNeighborhood">Xaafadda shaqadu taal</label><input id="employerNeighborhood" required maxlength="100" value="Towfiiq" placeholder="Tusaale: Towfiiq"></div>
-    <div><label for="employerType">Nooca shaqada</label><select id="employerType" required><option>Joogto</option><option>Waqti-dhiman</option><option>Qandaraas</option><option>Tababar</option><option>Shaqo bilow ah</option></select></div>
-    <div><label for="employerPay">Mushahar / gunno</label><input id="employerPay" maxlength="100" placeholder="Tusaale: $300 bishii ama waa laga wada hadlayaa"></div>
-    <div class="full"><label for="employerRequirements">Shuruudaha, xirfadaha iyo shahaadooyinka</label><textarea id="employerRequirements" rows="3" required maxlength="1500" placeholder="Waxbarasho, xirfado, shahaadooyin iyo khibrad loo baahan yahay..."></textarea></div>
-    <div class="full"><label for="employerDescription">Faahfaahinta shaqada iyo habka codsiga</label><textarea id="employerDescription" rows="3" required maxlength="1800" placeholder="Waajibaadka shaqada, waqtiga, iyo sida musharraxiintu u codsanayaan..."></textarea></div>
-   </div>
-   <div class="btn-row"><button class="btn primary" type="submit">Daabac shaqada bannaan</button></div>
-   <p id="employerMessage" class="muted" aria-live="polite"></p>
-  </form>
- </div>
- <div class="panel" style="margin-top:14px">
-  <div class="section-head"><div><h2>📨 Codsiyada shaqo</h2><p class="muted">Codsiyada lagu sameeyo qalabkan waxaa lagu arki karaa halkan browser-kan.</p></div></div>
-  <div id="applicationsList" class="muted">Weli codsi lama gudbin.</div>
- </div>
- <div class="notice"><strong>Ogow:</strong> Hadda xogta shaqo-doonayaasha, shaqooyinka iyo codsiyada waxay ku kaydsan yihiin browser-ka qalabka aad isticmaalayso oo keliya. Si shirkaduhu uga arkaan qalabkooda, shaqo-doonayaashuna ay si dhab ah ugu codsadaan internetka, waxaa loo baahan yahay database online ah, akoonno iyo ilaalin xogeed. Ha gelin xog xasaasi ah ama dukumenti aqoonsi halkan ilaa kaydin ammaan ah la dejiyo.</div>
+<div class="head"><div><h2>💼 Shaqooyin bannaan</h2><p class="muted">Raadi shaqo, xirfad, shirkad ama xaafad.</p></div></div>
+<div class="panel">
+<div class="filters">
+<input id="jobSearch" placeholder="Raadi shaqo ama xirfad...">
+<input id="jobDistrict" placeholder="Degmada">
+<input id="jobNeighborhood" placeholder="Xaafadda">
+<select id="jobType">
+<option value="">Nooc kasta</option>
+<option>Joogto</option>
+<option>Waqti-dhiman</option>
+<option>Qandaraas</option>
+<option>Tababar</option>
+<option>Shaqo bilow ah</option>
+</select>
+</div>
+<div class="grid" id="jobListings"></div>
+</div>
+
+<div class="panel" style="margin-top:14px">
+<h3>Shaqo-doone isdiiwaangeli</h3>
+<p class="muted">Buuxi xogtaada si aad ugu codsato shaqooyinka boggan.</p>
+<form id="candidateForm">
+<div class="formgrid">
+<div><label>Magaca oo buuxa</label><input id="cName" required maxlength="100"></div>
+<div><label>Telefoon / WhatsApp</label><input id="cPhone" type="tel" required maxlength="30" placeholder="+252..."></div>
+<div><label>Magaalada</label><input id="cCity" required value="Muqdisho"></div>
+<div><label>Degmada</label><input id="cDistrict" required></div>
+<div><label>Xaafadda</label><input id="cNeighborhood" required></div>
+<div><label>Shaqada aad rabto</label><input id="cRole" required></div>
+<div><label>Waxbarashada</label>
+<select id="cEducation" required>
+<option value="">Dooro</option>
+<option>Dugsi hoose/dhexe</option>
+<option>Dugsi sare</option>
+<option>Shahaado farsamo</option>
+<option>Diploma</option>
+<option>Jaamacad</option>
+<option>Waxbarasho aan rasmi ahayn</option>
+</select></div>
+<div><label>Khibrad</label>
+<select id="cExperience" required>
+<option value="">Dooro</option>
+<option>Khibrad ma lihi</option>
+<option>Ka yar 1 sano</option>
+<option>1–3 sano</option>
+<option>4 sano ama ka badan</option>
+</select></div>
+<div class="full"><label>Xirfadaha</label><input id="cSkills" required maxlength="500" placeholder="Tusaale: koronto, computer, iib..."></div>
+<div class="full"><label>Faahfaahin dheeraad ah</label><textarea id="cAbout" rows="3" maxlength="1000"></textarea></div>
+</div>
+<div class="btnrow"><button class="btn primary">Diiwaangeli</button></div>
+<p class="muted" id="candidateMsg" aria-live="polite"></p>
+</form>
+</div>
+
+<div class="panel" style="margin-top:14px">
+<h3>Shirkad shaqaale qoraysa</h3>
+<form id="jobForm">
+<div class="formgrid">
+<div><label>Magaca shirkadda</label><input id="jCompany" required maxlength="100"></div>
+<div><label>Telefoon ama email</label><input id="jContact" required maxlength="100"></div>
+<div><label>Magaca shaqada</label><input id="jTitle" required maxlength="100"></div>
+<div><label>Magaalada</label><input id="jCity" required value="Muqdisho"></div>
+<div><label>Degmada</label><input id="jDistrict" required></div>
+<div><label>Xaafadda</label><input id="jNeighborhood" required></div>
+<div><label>Nooca shaqada</label>
+<select id="jType">
+<option>Joogto</option><option>Waqti-dhiman</option><option>Qandaraas</option><option>Tababar</option><option>Shaqo bilow ah</option>
+</select></div>
+<div><label>Mushahar</label><input id="jPay" placeholder="Tusaale: $250 bishii"></div>
+<div class="full"><label>Shuruudaha shaqada</label><textarea id="jRequirements" required rows="3" maxlength="1200"></textarea></div>
+<div class="full"><label>Faahfaahin iyo habka codsiga</label><textarea id="jDescription" required rows="3" maxlength="1200"></textarea></div>
+</div>
+<button class="btn primary" style="margin-top:12px">Daabac shaqada</button>
+<p id="jobMsg" class="muted" aria-live="polite"></p>
+</form>
+</div>
+
+<div class="panel" style="margin-top:14px">
+<h3>Codsiyadayda (qalabkan)</h3>
+<div id="applications" class="muted">Weli codsi lama gudbin.</div>
+</div>
 </section>
 
 <section class="section" id="ads">
- <div class="section-head"><div><h2>Raadi xayeysiisyada</h2><p class="muted">Ku raadi magaca, magaalada, degmada ama xaafadda.</p></div><span class="badge" id="count">0 xayeysiis</span></div>
- <div class="filters"><input id="search" placeholder="🔎 Raadi shaqo, guri ama adeeg..." aria-label="Raadi xayeysiisyada"><input id="district" placeholder="Degmada" aria-label="Degmada"><input id="neighborhood" placeholder="Xaafadda" aria-label="Xaafadda"></div>
- <div class="listings" id="listings"></div>
+<div class="head"><div><h2>📣 Xayeysiisyo</h2><p class="muted">Guryo kiro, adeegyo, makhaayado iyo shaqooyin.</p></div><span class="badge" id="adCount">0 xayeysiis</span></div>
+<div class="filters">
+<input id="adSearch" placeholder="Raadi xayeysiis...">
+<input id="adDistrict" placeholder="Degmada">
+<input id="adNeighborhood" placeholder="Xaafadda">
+</div>
+<div class="grid" id="adListings"></div>
 </section>
 
 <section class="section" id="post">
- <div class="section-head"><div><h2>Soo geli xayeysiis cusub</h2><p class="muted">Geli xog sax ah si dadka kuu soo xiriiri karaan.</p></div></div>
- <form class="panel" id="postForm">
-  <div class="form-grid">
-   <div><label for="category">Qaybta</label><select id="category" required><option value="Shaqo">Shaqo</option><option value="Guri kiro">Guri kiro</option><option value="Cilaansar">Cilaansar iyo qurxin</option><option value="Dhar tolid">Dhar tolid</option><option value="Nadaafad">Nadaafad</option><option value="Cunto karin">Cunto karin</option><option value="Farsamo">Farsamayaqaan</option><option value="Makhaayad">Makhaayad</option><option value="Adeeg kale">Adeeg kale</option></select></div>
-   <div><label for="title">Cinwaanka xayeysiiska</label><input id="title" required maxlength="100" placeholder="Tusaale: Guri kiro ah"></div>
-   <div><label for="city">Magaalada</label><input id="city" required placeholder="Tusaale: Muqdisho"></div>
-   <div><label for="postDistrict">Degmada</label><input id="postDistrict" required placeholder="Tusaale: Hodan"></div>
-   <div><label for="postNeighborhood">Xaafadda</label><input id="postNeighborhood" required placeholder="Magaca xaafadda"></div>
-   <div><label for="price">Qiimaha / mushaharka</label><input id="price" maxlength="80" placeholder="Tusaale: $150 bishii"></div>
-   <div><label for="kind">Nooca</label><select id="kind"><option>Caadi</option><option>Hal maalin</option><option>Joogto</option><option>Waqti-dhiman</option></select></div>
-   <div><label for="contact">Telefoonka xiriirka</label><input id="contact" type="tel" required maxlength="30" placeholder="+252..."></div>
-   <div class="full"><label for="description">Faahfaahin</label><textarea id="description" rows="4" required maxlength="1500" placeholder="Sharax shaqada, guriga ama adeegga..."></textarea></div>
-   <div><label for="owner">Magaca qofka / shirkadda</label><input id="owner" required maxlength="80" placeholder="Magacaaga ama shirkadda"></div>
-  </div>
-  <div class="btn-row"><button class="btn primary" type="submit">Daabac xayeysiiska</button><button class="btn secondary" type="reset">Nadiifi foomka</button></div>
-  <p class="muted" id="postMessage" aria-live="polite"></p>
- </form>
-</section>
-
-
-<section class="section" id="businesses">
- <div class="section-head"><div><h2>🏪 Ganacsatada iyo dukaamada la xaqiijiyey</h2><p class="muted">Ganacsade kasta wuxuu codsan karaa xaqiijin. Maamulka ayaa hubinaya aqoonsiga, shatiga iyo goobta ganacsiga ka hor inta aan la daabicin.</p></div></div>
- <div class="notice"><strong>Muhiim:</strong> Tani waa tijaabo browser-ka ku shaqaysa. Sawirka wajiga iyo shatiga halkan si ammaan ah looma xaqiijin karo, mana jiraan akoonno ama fariimo qalabyo kala duwan u dhexeeya. Ha gelin dukumenti xasaasi ah ilaa backend ammaan ah lagu xiro.</div>
- <div class="panel">
-  <h3>1. Samee akoon / Gal</h3>
-  <p class="muted">Telefoonka iyo password-ka waxaa loogu talagalay tijaabada boggan oo keliya. Password-ka waxaa loo rogaa hash, balse tani ma beddelayso login server oo ammaan ah.</p>
-  <form id="accountForm">
-   <div class="form-grid">
-    <div><label for="accountPhone">Lambarka telefoonka</label><input id="accountPhone" type="tel" required maxlength="30" placeholder="+252..."></div>
-    <div><label for="accountPassword">Password</label><input id="accountPassword" type="password" required minlength="6" maxlength="100" placeholder="Ugu yaraan 6 xaraf"></div>
-   </div>
-   <div class="btn-row"><button class="btn primary" type="submit">Samee akoon / Gal</button><button class="btn secondary" id="logoutAccount" type="button">Ka bax</button></div>
-   <p id="accountMessage" class="muted" aria-live="polite"></p>
-  </form>
- </div>
- <div class="panel" style="margin-top:14px">
-  <h3>2. Diiwaangeli ganacsigaaga si loo xaqiijiyo</h3>
-  <p class="muted">Ku qor magacaaga, ganacsiga, meesha uu ku yaal, adeegga/alaabta, sawirka wajiga iyo shatiga ganacsiga.</p>
-  <form id="businessForm">
-   <div class="form-grid">
-    <div><label for="bizOwner">Magaca qofka ganacsadaha ah</label><input id="bizOwner" required maxlength="100"></div>
-    <div><label for="bizPhone">Telefoonka ganacsadaha</label><input id="bizPhone" type="tel" required maxlength="30" placeholder="+252..."></div>
-    <div><label for="bizName">Magaca dukaanka / ganacsiga</label><input id="bizName" required maxlength="120"></div>
-    <div><label for="bizCategory">Nooca ganacsiga</label><select id="bizCategory" required><option value="">Dooro</option><option>Dukaan / tafaariiq</option><option>Jumlo</option><option>Makhaayad / cunto</option><option>Dharka</option><option>Qalabka korontada</option><option>Mukef iyo qaboojiye</option><option>Farmashiye</option><option>Adeeg farsamo</option><option>Ganacsi kale</option></select></div>
-    <div><label for="bizCity">Magaalada</label><input id="bizCity" required value="Muqdisho"></div>
-    <div><label for="bizDistrict">Degmada</label><input id="bizDistrict" required placeholder="Tusaale: Yaaqshiid"></div>
-    <div><label for="bizNeighborhood">Xaafadda / goobta saxda ah</label><input id="bizNeighborhood" required placeholder="Tusaale: Towfiiq, agagaarka..."></div>
-    <div><label for="bizLicenseNumber">Lambarka shatiga (haddii jiro)</label><input id="bizLicenseNumber" maxlength="100" placeholder="Lambarka ku qoran shatiga"></div>
-    <div class="full"><label for="bizOffer">Waxyaabaha aad iibiso ama adeegyada aad qabato</label><textarea id="bizOffer" required rows="3" maxlength="1500" placeholder="Tusaale: alaabaha dukaanka, mukef, koronto, qiimayaal ama saacadaha shaqada"></textarea></div>
-    <div><label for="bizFace">Sawirka wajiga (tijaabo)</label><input id="bizFace" type="file" accept="image/*" required><p class="muted">Faylka lama diri doono server; boggan wuxuu kaliya muujinayaa magaca faylka.</p></div>
-    <div><label for="bizLicense">Sawirka shatiga ganacsiga (tijaabo)</label><input id="bizLicense" type="file" accept="image/*,.pdf" required><p class="muted">Ha gelin dukumenti xasaasi ah bog tijaabo ah.</p></div>
-    <div class="full"><label for="bizPublicPhone">Telefoonka ay macaamiishu kula soo xiriirayaan</label><input id="bizPublicPhone" type="tel" required maxlength="30" placeholder="+252..."></div>
-   </div>
-   <div class="btn-row"><button class="btn primary" type="submit">U dir maamulka xaqiijin</button></div>
-   <p id="businessMessage" class="muted" aria-live="polite"></p>
-  </form>
- </div>
- <div class="panel" style="margin-top:14px">
-  <div class="section-head"><div><h3>3. Ganacsiyada la oggolaaday</h3><p class="muted">Kaliya codsiyada la oggolaaday ayaa qaybtaan ka muuqanaya.</p></div></div>
-  <div id="verifiedBusinesses" class="listings"></div>
- </div>
- <div class="panel" style="margin-top:14px">
-  <h3>4. Fariin u dir ganacsade</h3>
-  <form id="businessMessageForm">
-   <div class="form-grid">
-    <div><label for="messageBusiness">Ganacsiga</label><select id="messageBusiness" required><option value="">Dooro ganacsi la oggolaaday</option></select></div>
-    <div><label for="messagePhone">Lambarkaaga telefoonka</label><input id="messagePhone" type="tel" required maxlength="30"></div>
-    <div class="full"><label for="messageText">Fariinta</label><textarea id="messageText" required rows="3" maxlength="1200" placeholder="Ku qor su'aashaada ama waxa aad rabto..."></textarea></div>
-   </div>
-   <button class="btn primary" type="submit">Dir fariinta</button>
-   <p id="messageStatus" class="muted" aria-live="polite"></p>
-  </form>
-  <p class="muted">Fariimaha tijaabada ah waxay ku kaydsan yihiin browser-kan oo keliya. Ganacsaduhu kama arki karo qalab kale ilaa server/database lagu xiro.</p>
- </div>
- <div class="panel" style="margin-top:14px">
-  <h3>5. Codsiyada sugaya xaqiijinta (tijaabo maamulka)</h3>
-  <p class="muted">Qaybtan waa tusaale shaqaynaya oo browser-ka ah, mana aha albaab maamul oo ammaan ah. Website-ka tooska ah waxaa loo baahan yahay maamul login leh.</p>
-  <div id="businessReviewList"></div>
-  <h3 style="margin-top:18px">Fariimaha la helay (tijaabo)</h3><div id="businessInbox"></div>
- </div>
+<div class="head"><div><h2>＋ Soo geli xayeysiis</h2><p class="muted">Ku qor xogta saxda ah iyo lambarka lagala soo xiriirayo.</p></div></div>
+<form class="panel" id="adForm">
+<div class="formgrid">
+<div><label>Qaybta</label>
+<select id="aCategory">
+<option>Guri kiro</option><option>Cilaansar</option><option>Dhar tolid</option><option>Nadaafad</option><option>Cunto karin</option><option>Farsamo</option><option>Makhaayad</option><option>Adeeg kale</option><option>Shaqo</option>
+</select></div>
+<div><label>Cinwaanka</label><input id="aTitle" required maxlength="100"></div>
+<div><label>Magaalada</label><input id="aCity" required value="Muqdisho"></div>
+<div><label>Degmada</label><input id="aDistrict" required></div>
+<div><label>Xaafadda</label><input id="aNeighborhood" required></div>
+<div><label>Qiimaha / mushaharka</label><input id="aPrice" maxlength="80" placeholder="Tusaale: $150 bishii"></div>
+<div><label>Telefoonka xiriirka</label><input id="aPhone" type="tel" required maxlength="30"></div>
+<div><label>Magaca qofka / ganacsiga</label><input id="aOwner" required maxlength="100"></div>
+<div class="full"><label>Faahfaahin</label><textarea id="aDescription" required rows="4" maxlength="1500"></textarea></div>
+</div>
+<div class="btnrow">
+<button class="btn primary">Daabac xayeysiiska</button>
+<button class="btn secondary" type="reset">Nadiifi</button>
+</div>
+<p class="muted" id="adMsg" aria-live="polite"></p>
+</form>
 </section>
 
 <section class="section" id="pos">
- <div class="section-head"><div><h2>Makhaayadda — POS</h2><p class="muted">Ku dar alaabta rasiidka, dooro miis, kadib diiwaangeli iibka.</p></div><span class="badge">Taleefan & kombiyuutar</span></div>
- <div class="pos-shell">
-  <nav class="pos-nav" aria-label="POS sections"><button class="pos-tab active" data-view="register">🧾 Register</button><button class="pos-tab" data-view="tables">🪑 Miisaska</button><button class="pos-tab" data-view="orders">📋 Iibkii hore</button><button class="pos-tab" data-view="booking">📅 Ballan</button><span class="table-badge" id="tableBadge">Miis 1</span></nav>
-  <div class="pos-body" id="registerView">
-   <aside class="receipt"><h3>Rasiidka dalabka</h3><p class="muted" id="receiptEmpty">Taabo alaabta si aad u bilowdo.</p><div id="receiptItems"></div><div class="totals"><div class="total-row"><span>Wadarta alaabta</span><strong id="subtotal">$0.00</strong></div><div class="total-row"><span>Canshuur tijaabo ah</span><strong id="tax">$0.00</strong></div><div class="total-row grand"><span>Wadarta guud</span><strong id="grandTotal">$0.00</strong></div></div><button class="btn primary" id="checkout" style="width:100%">Xaqiiji iibka</button><button class="btn secondary" id="clearCart" style="width:100%;margin-top:8px">Nadiifi rasiidka</button></aside>
-   <div class="catalog"><div class="product-cats"><button class="active" data-productcat="Food">🍽️ Cunto</button><button data-productcat="Drinks">🥤 Cabitaan</button><button data-productcat="Misc">🧾 Kale</button></div><div class="course-filters" id="courseFilters"><button class="active" data-course="Dhammaan">Dhammaan</button><button data-course="Starter">Bilow</button><button data-course="Main">Cunto weyn</button><button data-course="Dessert">Macmacaan</button></div><div class="products" id="products"></div></div>
-  </div>
-  <div class="pos-extra hidden" id="tablesView"><h3>Dooro miis</h3><p class="muted">Miiska aad doorato ayaa lagu qorayaa rasiidka xiga.</p><div class="tables" id="tables"></div></div>
-  <div class="pos-extra hidden" id="ordersView"><h3>Iibkii hore</h3><div id="ordersList" class="muted">Weli iib lama diiwaangelin.</div></div>
-  <div class="pos-extra hidden" id="bookingView"><h3>Ballan makhaayad</h3><form id="bookingForm"><div class="form-grid"><div><label for="bookingName">Magaca qofka</label><input id="bookingName" required maxlength="80"></div><div><label for="bookingPhone">Telefoon</label><input id="bookingPhone" required type="tel" maxlength="30"></div><div><label for="bookingDate">Taariikhda iyo waqtiga</label><input id="bookingDate" required type="datetime-local"></div><div><label for="bookingGuests">Tirada dadka</label><input id="bookingGuests" required type="number" min="1" max="50" value="2"></div></div><button class="btn primary" style="margin-top:12px">Kaydi ballanta</button></form><p id="bookingMessage" class="muted" aria-live="polite"></p></div>
- </div>
- <div id="orderResult" class="panel hidden" style="margin-top:12px" aria-live="polite"></div>
- <div class="notice"><strong>Fiiro muhiim ah:</strong> Noocan hadda xogta wuxuu ku kaydiyaa browser-ka qalabka aad isticmaalayso. Xayeysiis, iib iyo ballan si dadka kale ula wadaagaan waxay u baahan yihiin database online ah iyo dejin amni. Canshuurta 5 senti waa tusaale la beddeli karo, mana aha talo canshuureed.</div>
+<div class="head"><div><h2>🍽️ POS Makhaayad</h2><p class="muted">Ku dar alaabta rasiidka, dooro miiska, kadib diiwaangeli iibka.</p></div></div>
+<div class="panel">
+<div class="tabs">
+<button class="tab active" data-posview="register">🧾 Rasiid</button>
+<button class="tab" data-posview="tables">🪑 Miisaska</button>
+<button class="tab" data-posview="orders">📋 Iibkii hore</button>
+</div>
+<div id="registerView" class="pos">
+<div class="receipt">
+<h3>Rasiidka</h3>
+<p id="cartEmpty" class="muted">Dooro alaabta si aad u bilowdo.</p>
+<div id="cartItems"></div>
+<div class="totalrow"><span>Wadarta alaabta</span><strong id="subtotal">$0.00</strong></div>
+<div class="totalrow"><span>Canshuur tijaabo ah (5%)</span><strong id="tax">$0.00</strong></div>
+<div class="totalrow grand"><span>Wadarta</span><strong id="grandTotal">$0.00</strong></div>
+<button id="checkout" class="btn primary" style="width:100%;margin-top:10px">Xaqiiji iibka</button>
+<button id="clearCart" class="btn secondary" style="width:100%;margin-top:8px">Nadiifi rasiidka</button>
+<p id="posMsg" class="muted" aria-live="polite"></p>
+</div>
+<div class="catalog">
+<div class="tabs">
+<button class="tab active" data-pcat="Cunto">🍛 Cunto</button>
+<button class="tab" data-pcat="Cabitaan">🥤 Cabitaan</button>
+<button class="tab" data-pcat="Kale">🧾 Kale</button>
+</div>
+<div id="products" class="products"></div>
+</div>
+</div>
+<div id="tablesView" class="hidden"><h3>Dooro miis</h3><div id="tables" class="tables"></div></div>
+<div id="ordersView" class="hidden"><h3>Iibkii hore</h3><div id="ordersList"></div></div>
+</div>
+<div class="notice">Ogow: POS-kan waa demo; lacag-bixin dhab ah ama xisaab-celin rasmi ah kuma xirna.</div>
 </section>
+
+<div class="notice"><strong>Muhiim — nooca hadda:</strong> Boggan wuxuu xogta ku kaydiyaa browser-ka qalabka aad isticmaalayso. GitHub Pages wuxuu martigelin karaa muuqaalka website-ka, laakiin login ammaan ah, xaqiijinta ganacsatada, fariimaha qalabyo kala duwan iyo database online ah waxay u baahan yihiin backend/database gaar ah. Tusaalooyinka shaqadu waa kuwo demo ah, mana aha shaqooyin la xaqiijiyey.</div>
 </main>
-<footer><div class="wrap">ShaqoHel © <span id="year"></span> — Fursado, adeegyo iyo cunto ku dhow xaafaddaada.</div></footer>
+
+<footer><div class="wrap">ShaqoHel © <span id="year"></span> — Shaqooyin, guryo iyo adeegyo hal meel.</div></footer>
 <script>
 "use strict";
-const $=id=>document.getElementById(id);
-const demo=[
-{id:"demo1",category:"Shaqo",title:"Shaqaale xafiis (tusaale)",city:"Muqdisho",district:"Hodan",neighborhood:"Taleex",price:"Mushahar la isla ogaanayo",kind:"Joogto",description:"Tusaale naqshadeed oo keliya. Ku beddel xayeysiis dhab ah.",contact:"",owner:"ShaqoHel — tusaale",isDemo:true},
-{id:"demo2",category:"Guri kiro",title:"Guri kiro ah (tusaale)",city:"Muqdisho",district:"Wadajir",neighborhood:"Xaafad tusaale ah",price:"Qiime la weydiinayo",kind:"Caadi",description:"Tusaale naqshadeed oo keliya. Xogta guriga lama xaqiijin.",contact:"",owner:"Milkiile — tusaale",isDemo:true},
-{id:"demo3",category:"Farsamo",title:"Koronto-yaqaan (tusaale)",city:"Muqdisho",district:"Yaqshiid",neighborhood:"Xaafad tusaale ah",price:"Qiime la isla ogaanayo",kind:"Hal maalin",description:"Tusaale naqshadeed oo keliya, ma aha adeeg la xaqiijiyey.",contact:"",owner:"Farsamayaqaan — tusaale",isDemo:true}
+
+const $ = id => document.getElementById(id);
+
+function loadData(key, fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return Array.isArray(value) ? value : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function saveData(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  } catch {
+    alert("Kaydinta xogta way fashilantay. Hubi booska browser-ka.");
+    return false;
+  }
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function getValue(id) {
+  return $(id).value.trim();
+}
+
+function money(value) {
+  return "$" + Number(value || 0).toFixed(2);
+}
+
+function normalize(value) {
+  return String(value || "").toLowerCase().trim();
+}
+
+function makeId() {
+  return Date.now().toString(36) +
+    Math.random().toString(36).slice(2, 8);
+}
+
+let jobs = loadData("shaqohel_jobs", [
+  {
+    id: "demo1",
+    company: "Tusaale Company",
+    title: "Shaqaale iib ah",
+    contact: "",
+    city: "Muqdisho",
+    district: "Hodan",
+    neighborhood: "Tusaale",
+    type: "Joogto",
+    pay: "$200 bishii",
+    requirements: "Akhlaaq wanaagsan iyo xiriir fiican.",
+    description: "Tani waa tusaale demo ah, mana aha shaqo la xaqiijiyey."
+  },
+  {
+    id: "demo2",
+    company: "Tusaale Technology",
+    title: "Kaaliye Computer",
+    contact: "",
+    city: "Muqdisho",
+    district: "Wadajir",
+    neighborhood: "Tusaale",
+    type: "Tababar",
+    pay: "Waa la isla heshiinayaa",
+    requirements: "Aqoonta aasaasiga ah ee computer-ka.",
+    description: "Tusaale waxbarasho oo aan shaqo rasmi ah ahayn."
+  }
+]);
+
+let ads = loadData("shaqohel_ads", []);
+let candidates = loadData("shaqohel_candidates", []);
+let applications = loadData("shaqohel_applications", []);
+let sales = loadData("shaqohel_sales", []);
+
+let selectedCategory = "Dhammaan";
+let cart = [];
+let selectedTable = 1;
+let activeProductCategory = "Cunto";
+let activePOSView = "register";
+
+const defaultProducts = [
+  {id:1,name:"Bariis iyo hilib",price:5,category:"Cunto",icon:"🍛"},
+  {id:2,name:"Baasto",price:4,category:"Cunto",icon:"🍝"},
+  {id:3,name:"Canjeero",price:1,category:"Cunto",icon:"🥞"},
+  {id:4,name:"Biyo",price:0.5,category:"Cabitaan",icon:"💧"},
+  {id:5,name:"Casiir",price:1.5,category:"Cabitaan",icon:"🧃"},
+  {id:6,name:"Shaah",price:0.5,category:"Cabitaan",icon:"☕"},
+  {id:7,name:"Burgar",price:3,category:"Cunto",icon:"🍔"},
+  {id:8,name:"Kafeega",price:1,category:"Cabitaan",icon:"☕"},
+  {id:9,name:"Alaab kale",price:1,category:"Kale",icon:"🧾"}
 ];
-const foods=[
-{id:"rice",name:"Bariis",description:"Bariis saxan",price:1,icon:"🍚",category:"Food",course:"Main"},
-{id:"chicken",name:"Digaag",description:"Digaag la kariyey",price:1.5,icon:"🍗",category:"Food",course:"Main"},
-{id:"soup",name:"Maraq",description:"Maraq kulul",price:1,icon:"🥣",category:"Food",course:"Starter"},
-{id:"salad",name:"Salad",description:"Salad cusub",price:1,icon:"🥗",category:"Food",course:"Starter"},
-{id:"cake",name:"Keeg",description:"Macmacaan",price:1,icon:"🍰",category:"Food",course:"Dessert"},
-{id:"banana",name:"Moos",description:"Miro",price:.5,icon:"🍌",category:"Food",course:"Dessert"},
-{id:"water",name:"Biyo",description:"Dhalo biyo ah",price:.5,icon:"💧",category:"Drinks"},
-{id:"juice",name:"Casiir",description:"Casiir miro",price:1,icon:"🧃",category:"Drinks"},
-{id:"soda",name:"Soda",description:"Cabitaan qasac",price:1,icon:"🥤",category:"Drinks"},
-{id:"tea",name:"Shaah",description:"Koob shaah",price:.5,icon:"☕",category:"Drinks"},
-{id:"delivery",name:"Gaarsiin",description:"Kharash gaarsiin",price:1,icon:"🛵",category:"Misc"},
-{id:"packaging",name:"Baakad",description:"Baakad cunto",price:.25,icon:"🥡",category:"Misc"}
-];
-function readStore(k){try{const v=JSON.parse(localStorage.getItem(k)||"[]");return Array.isArray(v)?v:[]}catch{return[]}}
-function saveStore(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch{return false}}
-function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function money(v){return "$"+Number(v||0).toFixed(2)}
-let ads=readStore("shaqohel_ads"),orders=readStore("shaqohel_orders"),bookings=readStore("shaqohel_bookings"),cart={},activeCategory="Dhammaan",productCategory="Food",activeCourse="Dhammaan",currentTable=1;
-function renderAds(){
- const q=$("search").value.toLowerCase().trim(),d=$("district").value.toLowerCase().trim(),n=$("neighborhood").value.toLowerCase().trim();
- const all=[...ads,...demo],filtered=all.filter(a=>(activeCategory==="Dhammaan"||a.category===activeCategory)&&(!q||[a.title,a.category,a.city,a.district,a.neighborhood,a.description,a.owner].join(" ").toLowerCase().includes(q))&&(!d||String(a.district).toLowerCase().includes(d))&&(!n||String(a.neighborhood).toLowerCase().includes(n)));
- $("count").textContent=filtered.length+" xayeysiis";
- $("listings").innerHTML=filtered.length?filtered.map(a=>`<article class="listing"><span class="badge">${esc(a.category)}</span>${a.isDemo?'<span class="badge">Tusaale</span>':''}<h3>${esc(a.title)}</h3><p class="muted">📍 ${esc(a.city)} · ${esc(a.district)} · ${esc(a.neighborhood)}</p><p><strong>${esc(a.price||"Qiime la weydiinayo")}</strong></p><p class="muted">${esc(a.description)}</p><p class="muted">${esc(a.kind)} · ${esc(a.owner)}</p><div class="listing-actions">${a.contact&&!a.isDemo?`<a class="btn primary" href="tel:${encodeURIComponent(a.contact)}">📞 Wac</a>`:'<span class="muted">Xiriir lama xaqiijin</span>'}${!a.isDemo?`<button class="btn secondary delete-ad" data-id="${esc(a.id)}">Tirtir</button>`:''}</div></article>`).join(""):'<div class="empty">Wax xayeysiis ah lama helin. Isku day raadis kale ama soo geli xayeysiis cusub.</div>';
-}
-function renderProducts(){
- const list=foods.filter(f=>f.category===productCategory&&(productCategory!=="Food"||activeCourse==="Dhammaan"||f.course===activeCourse));
- $("products").innerHTML=list.map(f=>`<button class="product" data-add="${f.id}" aria-label="Ku dar ${esc(f.name)}"><div class="product-icon">${f.icon}</div><div class="product-info"><strong>${esc(f.name)}</strong><span class="muted">${esc(f.description)}</span><small>${money(f.price)}</small></div></button>`).join("");
- $("courseFilters").classList.toggle("hidden",productCategory!=="Food");
-}
-function totals(){const sub=foods.reduce((s,f)=>s+f.price*(cart[f.id]||0),0);const tax=sub?Math.round(sub*.05*100)/100:0;return{sub,tax,total:sub+tax}}
-function renderCart(){
- const entries=foods.filter(f=>(cart[f.id]||0)>0);
- $("receiptEmpty").classList.toggle("hidden",entries.length>0);
- $("receiptItems").innerHTML=entries.map(f=>`<div class="receipt-line"><button class="small-btn" data-remove="${f.id}" aria-label="Ka saar hal ${esc(f.name)}">−</button><span>${esc(f.name)} × ${cart[f.id]}</span><strong>${money(f.price*cart[f.id])}</strong></div>`).join("");
- const t=totals();$("subtotal").textContent=money(t.sub);$("tax").textContent=money(t.tax);$("grandTotal").textContent=money(t.total);$("tableBadge").textContent="Miis "+currentTable+" · "+(entries.length?"Dalab socda":"Dalab cusub");
-}
-function renderOrders(){
- $("ordersList").innerHTML=orders.length?orders.map(o=>`<div class="receipt-line"><span><strong>Rasiid ${esc(o.id)}</strong><br><span class="muted">Miis ${esc(o.table)} · ${esc(o.date)}</span><br>${(o.items||[]).map(i=>esc(i.name)+" × "+i.quantity).join(", ")}</span><strong>${money(o.total)}</strong></div>`).join(""):'<div class="empty">Weli iib lama diiwaangelin.</div>';
-}
-$("products").addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(!b)return;cart[b.dataset.add]=(cart[b.dataset.add]||0)+1;renderCart()});
-$("receiptItems").addEventListener("click",e=>{const b=e.target.closest("[data-remove]");if(!b)return;const id=b.dataset.remove;cart[id]=(cart[id]||0)-1;if(cart[id]<=0)delete cart[id];renderCart()});
-document.querySelectorAll("[data-productcat]").forEach(b=>b.addEventListener("click",()=>{productCategory=b.dataset.productcat;document.querySelectorAll("[data-productcat]").forEach(x=>x.classList.toggle("active",x===b));activeCourse="Dhammaan";document.querySelectorAll("[data-course]").forEach(x=>x.classList.toggle("active",x.dataset.course===activeCourse));renderProducts()}));
-document.querySelectorAll("[data-course]").forEach(b=>b.addEventListener("click",()=>{activeCourse=b.dataset.course;document.querySelectorAll("[data-course]").forEach(x=>x.classList.toggle("active",x===b));renderProducts()}));
-$("clearCart").addEventListener("click",()=>{cart={};renderCart()});
-$("checkout").addEventListener("click",()=>{
- const t=totals();if(!t.sub){alert("Marka hore dooro cunto ama cabitaan.");return}
- const order={id:Date.now(),table:currentTable,items:foods.filter(f=>cart[f.id]).map(f=>({name:f.name,quantity:cart[f.id],unitPrice:f.price})),subtotal:t.sub,tax:t.tax,total:t.total,date:new Date().toLocaleString()};
- orders.unshift(order);const ok=saveStore("shaqohel_orders",orders);
- $("orderResult").classList.remove("hidden");$("orderResult").innerHTML=`<h3>${ok?"✅ Iibka waa la diiwaangeliyey":"⚠️ Iibka lama kaydin"}</h3><p>Rasiid #: <strong>${esc(order.id)}</strong> · Miis: ${order.table}</p><p>${order.items.map(i=>esc(i.name)+" × "+i.quantity).join(", ")}</p><p>Wadarta guud: <strong>${money(t.total)}</strong></p><p class="muted">${ok?"Waxaa lagu kaydiyey browser-kan.":"Kaydinta browser-ku way fashilantay; qor rasiidka ka hor intaadan ka bixin bogga."}</p>`;
- cart={};renderCart();renderOrders();$("orderResult").scrollIntoView({behavior:"smooth",block:"nearest"});
-});
-$("tables").innerHTML=Array.from({length:12},(_,i)=>`<button class="pos-tab" data-table="${i+1}">Miis ${i+1}</button>`).join("");
-$("tables").addEventListener("click",e=>{const b=e.target.closest("[data-table]");if(!b)return;currentTable=Number(b.dataset.table);document.querySelectorAll("[data-table]").forEach(x=>x.classList.toggle("active",x===b));renderCart();showView("register")});
-function showView(view){document.querySelectorAll("[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===view));["register","tables","orders","booking"].forEach(v=>$(v+"View").classList.toggle("hidden",v!==view));if(view==="orders")renderOrders()}
-document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
-$("bookingForm").addEventListener("submit",e=>{e.preventDefault();const b={id:Date.now(),name:$("bookingName").value.trim(),phone:$("bookingPhone").value.trim(),date:$("bookingDate").value,guests:Number($("bookingGuests").value)};bookings.unshift(b);const ok=saveStore("shaqohel_bookings",bookings);$("bookingMessage").textContent=ok?"Ballanta waxaa lagu kaydiyey browser-kan.":"Ballanta lama kaydin; fadlan isku day mar kale.";$("bookingForm").reset()});
-$("postForm").addEventListener("submit",e=>{
- e.preventDefault();const a={id:Date.now(),category:$("category").value,title:$("title").value.trim(),city:$("city").value.trim(),district:$("postDistrict").value.trim(),neighborhood:$("postNeighborhood").value.trim(),price:$("price").value.trim(),kind:$("kind").value,description:$("description").value.trim(),contact:$("contact").value.trim(),owner:$("owner").value.trim()};
- ads.unshift(a);if(!saveStore("shaqohel_ads",ads)){ads.shift();$("postMessage").textContent="Kaydinta browser-ka way fashilantay. Xogta lama kaydin.";return}
- $("postForm").reset();activeCategory="Dhammaan";document.querySelectorAll(".cat").forEach(b=>b.classList.toggle("active",b.dataset.cat===activeCategory));renderAds();$("postMessage").textContent="Xayeysiiska waa lagu daray browser-kan. Si uu dadka kale ugu muuqdo, database online ah ayaa loo baahan yahay."; $("ads").scrollIntoView({behavior:"smooth"});
-});
-$("listings").addEventListener("click",e=>{const b=e.target.closest(".delete-ad");if(!b)return;if(!confirm("Ma hubtaa inaad tirtirayso xayeysiiskan browser-kan?"))return;ads=ads.filter(a=>String(a.id)!==b.dataset.id);saveStore("shaqohel_ads",ads);renderAds()});
-document.querySelectorAll(".cat").forEach(b=>b.addEventListener("click",()=>{activeCategory=b.dataset.cat;document.querySelectorAll(".cat").forEach(x=>x.classList.toggle("active",x===b));$("ads").scrollIntoView({behavior:"smooth",block:"start"});renderAds()}));
-["search","district","neighborhood"].forEach(id=>$(id).addEventListener("input",renderAds));
-$("year").textContent=new Date().getFullYear();
-renderProducts();renderCart();renderAds();renderOrders();
 
-/* ShaqoHel job board: browser-local prototype */
-const sampleJobs=[
- {id:"sample-job-1",title:"Farsamayaqaan mukef (tusaale)",company:"ShaqoHel — tusaale",city:"Muqdisho",district:"Yaaqshiid",neighborhood:"Towfiiq",type:"Qandaraas",pay:"Laga wada hadlayo",requirements:"Rakibidda, dayactirka iyo nadiifinta mukefka; khibrad waa faa'iido.",description:"Tusaale muuqaal ah oo keliya; ma aha shaqo dhab ah oo la xaqiijiyey.",contact:"",demo:true},
- {id:"sample-job-2",title:"Farsamayaqaan koronto (tusaale)",company:"Ganacsi tusaale ah",city:"Muqdisho",district:"Yaaqshiid",neighborhood:"Towfiiq",type:"Qandaraas",pay:"Heshiis ku xiran khibradda",requirements:"Dayactirka korontada guryaha iyo ganacsiga; tababar iyo badbaado koronto.",description:"Tusaale muuqaal ah oo keliya; ma aha shaqo dhab ah oo la xaqiijiyey.",contact:"",demo:true},
- {id:"sample-job-3",title:"Kaaliye xafiis (tusaale)",company:"ShaqoHel — tusaale",city:"Muqdisho",district:"Hodan",neighborhood:"Taleex",type:"Shaqo bilow ah",pay:"Mushahar laga wada hadlayo",requirements:"Akhri/qor Somali; xirfadaha kombiyuutarka waa dheeraad.",description:"Tusaale keliya; ma aha boos shaqo oo la xaqiijiyey.",contact:"",demo:true}
-];
-let employerJobs=readStore("shaqohel_jobs"),candidates=readStore("shaqohel_candidates"),applications=readStore("shaqohel_applications");
-function renderJobListings(){
- const q=$("jobSearch").value.toLowerCase().trim(),city=$("jobCity").value.toLowerCase().trim(),district=$("jobDistrict").value.toLowerCase().trim(),neighborhood=$("jobNeighborhood").value.toLowerCase().trim(),type=$("jobType").value;
- const all=[...employerJobs,...sampleJobs];
- const found=all.filter(j=>(!q||[j.title,j.company,j.city,j.district,j.neighborhood,j.requirements,j.description].join(" ").toLowerCase().includes(q))&&(!city||String(j.city||"").toLowerCase().includes(city))&&(!district||String(j.district||"").toLowerCase().includes(district))&&(!neighborhood||String(j.neighborhood||"").toLowerCase().includes(neighborhood))&&(!type||j.type===type));
- $("jobListings").innerHTML=found.length?found.map(j=>`<article class="listing"><span class="badge">${esc(j.type)}</span>${j.demo?'<span class="badge">Tusaale — ma aha shaqo la xaqiijiyey</span>':''}<h3>${esc(j.title)}</h3><p><strong>${esc(j.company)}</strong></p><p class="muted">📍 ${esc(j.city||"Muqdisho")} · Degmada ${esc(j.district||"lama sheegin")} · Xaafadda ${esc(j.neighborhood||"lama sheegin")}</p><p><strong>${esc(j.pay||"Mushahar laga wada hadlayo")}</strong></p><p class="muted">${esc(j.requirements)}</p><p class="muted">${esc(j.description)}</p>${j.demo?'<p class="muted">Tani waa tusaale tijaabo ah. Shaqo dhab ah ma aha.</p>':`<button class="btn primary apply-job" data-job="${esc(j.id)}">Codso shaqadan</button>`}</article>`).join(""):'<div class="empty">Shaqo ku habboon raadintaada lagama helin. Isku day inaad beddesho xirfadda, degmada ama xaafadda.</div>';
-}
-function renderApplications(){
- $("applicationsList").innerHTML=applications.length?applications.map(a=>`<div class="receipt-line"><span><strong>${esc(a.candidateName)}</strong><br>${esc(a.jobTitle)} — ${esc(a.company)}<br><span class="muted">${esc(a.date)} · ${esc(a.status||"La diiwaangeliyey")}</span></span><strong>${esc(a.candidatePhone)}</strong></div>`).join(""):'<div class="empty">Weli codsi lama gudbin.</div>';
-}
-["jobSearch","jobCity","jobDistrict","jobNeighborhood","jobType"].forEach(id=>$(id).addEventListener("input",renderJobListings));
-$("candidateForm").addEventListener("submit",e=>{
- e.preventDefault();
- const c={id:Date.now(),name:$("candidateName").value.trim(),phone:$("candidatePhone").value.trim(),city:$("candidateCity").value.trim(),district:$("candidateDistrict").value.trim(),neighborhood:$("candidateNeighborhood").value.trim(),role:$("candidateRole").value.trim(),education:$("candidateEducation").value,experience:$("candidateExperience").value,skills:$("candidateSkills").value.trim(),certificates:$("candidateCertificates").value.trim(),about:$("candidateAbout").value.trim(),date:new Date().toLocaleString()};
- candidates.unshift(c);
- if(!saveStore("shaqohel_candidates",candidates)){candidates.shift();$("candidateMessage").textContent="Kaydintu way fashilantay. Fadlan xogta meel ammaan ah ku hay.";return}
- $("candidateMessage").textContent="Waad isdiiwaangelisay browser-kan. Xogta weli si toos ah shirkadaha uguma gudbayso ilaa database online ah la xiro.";
- $("candidateForm").reset();
-});
-$("employerJobForm").addEventListener("submit",e=>{
- e.preventDefault();
- const j={id:Date.now(),company:$("employerCompany").value.trim(),contact:$("employerContact").value.trim(),title:$("employerTitle").value.trim(),city:$("employerCity").value.trim(),district:$("employerDistrict").value.trim(),neighborhood:$("employerNeighborhood").value.trim(),type:$("employerType").value,pay:$("employerPay").value.trim(),requirements:$("employerRequirements").value.trim(),description:$("employerDescription").value.trim(),date:new Date().toLocaleString()};
- employerJobs.unshift(j);
- if(!saveStore("shaqohel_jobs",employerJobs)){employerJobs.shift();$("employerMessage").textContent="Kaydintu way fashilantay; shaqada lama kaydin.";return}
- $("employerMessage").textContent="Shaqada waa lagu daray boggan browser-ka. Si shaqo-doonayaasha qalab kale uga arkaan, database online ah ayaa loo baahan yahay.";
- $("employerJobForm").reset();renderJobListings();$("jobListings").scrollIntoView({behavior:"smooth",block:"start"});
-});
-$("jobListings").addEventListener("click",e=>{
- const b=e.target.closest(".apply-job");if(!b)return;
- const j=employerJobs.find(x=>String(x.id)===b.dataset.job);if(!j)return;
- if(!candidates.length){alert("Fadlan marka hore buuxi foomka 'Shaqo-doone isdiiwaangeli', kadib ku noqo shaqadan oo codso.");$("candidateForm").scrollIntoView({behavior:"smooth"});$("candidateName").focus();return}
- const c=candidates[0];
- if(!confirm("Ma rabtaa inaad shaqadan ku codsato xogta shaqo-doonaha ugu dambaysay ee browser-kan: "+c.name+"?"))return;
- const a={id:Date.now(),candidateName:c.name,candidatePhone:c.phone,jobId:j.id,jobTitle:j.title,company:j.company,date:new Date().toLocaleString(),status:"Codsi lagu kaydiyey browser-kan"};
- applications.unshift(a);
- if(!saveStore("shaqohel_applications",applications)){applications.shift();alert("Codsiga lama kaydin. Fadlan isku day mar kale.");return}
- renderApplications();alert("Codsiga waa lagu kaydiyey browser-kan. Shaqaaleysiiyuhu kama heli karo ilaa database online ah la xiro.");$("applicationsList").scrollIntoView({behavior:"smooth",block:"start"});
-});
-renderJobListings();renderApplications();
+function renderJobs() {
+  const search = normalize(getValue("jobSearch"));
+  const district = normalize(getValue("jobDistrict"));
+  const neighborhood = normalize(getValue("jobNeighborhood"));
+  const type = getValue("jobType");
 
+  const filtered = jobs.filter(job => {
+    const text = normalize([
+      job.title, job.company, job.description,
+      job.requirements, job.city, job.district
+    ].join(" "));
 
-/* Ganacsatada: demo browser-local oo aan ahayn nidaam xaqiijin ammaan ah */
-let accounts=readStore("shaqohel_demo_accounts"),businesses=readStore("shaqohel_businesses"),businessMessages=readStore("shaqohel_business_messages"),activeAccount=localStorage.getItem("shaqohel_demo_active")||"";
-async function demoPasswordHash(value){
- const bytes=new TextEncoder().encode(value);const digest=await crypto.subtle.digest("SHA-256",bytes);return Array.from(new Uint8Array(digest)).map(x=>x.toString(16).padStart(2,"0")).join("");
-}
-function renderBusinesses(){
- const approved=businesses.filter(b=>b.status==="approved");
- $("verifiedBusinesses").innerHTML=approved.length?approved.map(b=>`<article class="listing"><span class="badge">✓ La oggolaaday (tijaabo)</span><h3>${esc(b.name)}</h3><p><strong>${esc(b.category)}</strong></p><p class="muted">👤 ${esc(b.owner)}</p><p class="muted">📍 ${esc(b.city)} · ${esc(b.district)} · ${esc(b.neighborhood)}</p><p>${esc(b.offer)}</p><p class="muted">Telefoon: ${esc(b.publicPhone)}</p><div class="listing-actions"><a class="btn primary" href="tel:${encodeURIComponent(b.publicPhone)}">📞 Wac</a></div></article>`).join(""):'<div class="empty">Weli ma jiro ganacsi la oggolaaday. Ganacsatada waa inay codsadaan, maamulka ayaana hubinaya.</div>';
- $("messageBusiness").innerHTML='<option value="">Dooro ganacsi la oggolaaday</option>'+approved.map(b=>`<option value="${esc(b.id)}">${esc(b.name)} — ${esc(b.district)}, ${esc(b.neighborhood)}</option>`).join("");
- $("businessReviewList").innerHTML=businesses.filter(b=>b.status==="pending").length?businesses.filter(b=>b.status==="pending").map(b=>`<article class="listing" style="margin:10px 0"><h3>${esc(b.name)}</h3><p>${esc(b.owner)} · ${esc(b.phone)}</p><p>${esc(b.category)} · ${esc(b.city)}, ${esc(b.district)}, ${esc(b.neighborhood)}</p><p>Shati: ${esc(b.licenseNumber||"Lambar lama sheegin")} · Wajiga: ${esc(b.faceFile)} · Dukumenti: ${esc(b.licenseFile)}</p><p>${esc(b.offer)}</p><div class="btn-row"><button class="btn primary" data-approve-business="${esc(b.id)}">Oggolow (tijaabo)</button><button class="btn secondary" data-reject-business="${esc(b.id)}">Diid</button></div></article>`).join(""):'<div class="empty">Ma jiraan codsiyo sugaya xaqiijin.</div>';
- $("businessInbox").innerHTML=businessMessages.length?businessMessages.map(m=>`<div class="receipt-line"><span><strong>${esc(m.businessName)}</strong><br>Ka timid: ${esc(m.senderPhone)}<br>${esc(m.message)}<br><span class="muted">${esc(m.date)}</span></span></div>`).join(""):'<div class="empty">Weli fariin lama soo dirin.</div>';
-}
-$("accountForm").addEventListener("submit",async e=>{
- e.preventDefault();const phone=$("accountPhone").value.trim(),password=await demoPasswordHash($("accountPassword").value);
- let a=accounts.find(x=>x.phone===phone);
- if(a){if(a.passwordHash!==password){$("accountMessage").textContent="Telefoonka ama password-ku sax ma aha (tijaabo).";return}}
- else {a={id:Date.now(),phone,passwordHash:password};accounts.push(a);if(!saveStore("shaqohel_demo_accounts",accounts)){accounts.pop();$("accountMessage").textContent="Akook lama kaydin.";return}}
- activeAccount=phone;localStorage.setItem("shaqohel_demo_active",phone);$("accountMessage").textContent="Waad gashay akoonka tijaabada ah: "+phone+". Ganacsigaaga waad diiwaangelin kartaa.";
-});
-$("logoutAccount").addEventListener("click",()=>{activeAccount="";localStorage.removeItem("shaqohel_demo_active");$("accountMessage").textContent="Waad ka baxday akoonka tijaabada ah."});
-$("businessForm").addEventListener("submit",e=>{
- e.preventDefault();const phone=$("bizPhone").value.trim();
- if(activeAccount&&activeAccount!==phone){$("businessMessage").textContent="Telefoonka ganacsadaha waa inuu la mid noqdaa telefoonka akoonka aad gashay.";return}
- if(!$("bizFace").files.length||!$("bizLicense").files.length){$("businessMessage").textContent="Fadlan dooro sawirka wajiga iyo faylka shatiga.";return}
- const b={id:Date.now(),owner:$("bizOwner").value.trim(),phone,name:$("bizName").value.trim(),category:$("bizCategory").value,city:$("bizCity").value.trim(),district:$("bizDistrict").value.trim(),neighborhood:$("bizNeighborhood").value.trim(),licenseNumber:$("bizLicenseNumber").value.trim(),offer:$("bizOffer").value.trim(),faceFile:$("bizFace").files[0].name,licenseFile:$("bizLicense").files[0].name,publicPhone:$("bizPublicPhone").value.trim(),status:"pending",date:new Date().toLocaleString()};
- businesses.unshift(b);if(!saveStore("shaqohel_businesses",businesses)){businesses.shift();$("businessMessage").textContent="Codsiga lama kaydin. Isku day mar kale.";return}
- $("businessMessage").textContent="Codsiga waa la diiwaangeliyey browser-kan, wuxuuna sugayaa hubin. Xaqiijin dhab ah ma dhicin.";
- $("businessForm").reset();renderBusinesses();
-});
-$("businessReviewList").addEventListener("click",e=>{
- const approve=e.target.closest("[data-approve-business]"),reject=e.target.closest("[data-reject-business]");if(!approve&&!reject)return;
- const id=String((approve||reject).dataset[approve?"approveBusiness":"rejectBusiness"]),b=businesses.find(x=>String(x.id)===id);if(!b)return;
- b.status=approve?"approved":"rejected";saveStore("shaqohel_businesses",businesses);renderBusinesses();
-});
-$("businessMessageForm").addEventListener("submit",e=>{
- e.preventDefault();const b=businesses.find(x=>String(x.id)===$("messageBusiness").value&&x.status==="approved");if(!b){$("messageStatus").textContent="Dooro ganacsi la oggolaaday.";return}
- const m={id:Date.now(),businessId:b.id,businessName:b.name,senderPhone:$("messagePhone").value.trim(),message:$("messageText").value.trim(),date:new Date().toLocaleString()};
- businessMessages.unshift(m);if(!saveStore("shaqohel_business_messages",businessMessages)){businessMessages.shift();$("messageStatus").textContent="Fariinta lama kaydin.";return}
- $("messageStatus").textContent="Fariinta tijaabada ah waa la kaydiyey browser-kan; ganacsaduhu kama heli karo qalab kale.";
- $("businessMessageForm").reset();renderBusinesses();
-});
-renderBusinesses();
+    return (!search || text.includes(search)) &&
+      (!district || normalize(job.district).includes(district)) &&
+      (!neighborhood || normalize(job.neighborhood).includes(neighborhood)) &&
+      (!type || job.type === type);
+  });
 
+  $("jobListings").innerHTML = filtered.length
+    ? filtered.map(job => `
+      <article class="card">
+        <span class="badge">Demo / Xayeysiis</span>
+        <h3>${escapeHTML(job.title)}</h3>
+        <p><strong>${escapeHTML(job.company)}</strong></p>
+        <p class="muted">📍 ${escapeHTML(job.city)}, ${escapeHTML(job.district)}, ${escapeHTML(job.neighborhood)}</p>
+        <p>💰 ${escapeHTML(job.pay || "Lama sheegin")}</p>
+        <p>🕒 ${escapeHTML(job.type)}</p>
+        <p>${escapeHTML(job.description)}</p>
+        <p class="muted"><strong>Shuruudaha:</strong> ${escapeHTML(job.requirements)}</p>
+        ${job.contact ? `<p>📞 ${escapeHTML(job.contact)}</p>` : ""}
+        <button class="btn primary applyJob" data-id="${escapeHTML(job.id)}">Codso shaqada</button>
+      </article>
+    `).join("")
+    : '<div class="empty">Shaqooyin ku habboon lama helin.</div>';
+}
+
+function renderAds() {
+  const search = normalize(getValue("adSearch"));
+  const district = normalize(getValue("adDistrict"));
+  const neighborhood = normalize(getValue("adNeighborhood"));
+
+  const filtered = ads.filter(ad => {
+    const text = normalize([
+      ad.title, ad.category, ad.owner, ad.description,
+      ad.city, ad.district, ad.neighborhood
+    ].join(" "));
+
+    return (!search || text.includes(search)) &&
+      (!district || normalize(ad.district).includes(district)) &&
+      (!neighborhood || normalize(ad.neighborhood).includes(neighborhood));
+  });
+
+  $("adCount").textContent = ads.length + " xayeysiis";
+
+  $("adListings").innerHTML = filtered.length
+    ? filtered.map(ad => `
+      <article class="card">
+        <span class="badge">${escapeHTML(ad.category)}</span>
+        <h3>${escapeHTML(ad.title)}</h3>
+        <p><strong>${escapeHTML(ad.price || "Qiime lama sheegin")}</strong></p>
+        <p class="muted">📍 ${escapeHTML(ad.city)}, ${escapeHTML(ad.district)}, ${escapeHTML(ad.neighborhood)}</p>
+        <p>${escapeHTML(ad.description)}</p>
+        <p class="muted">Waxaa soo geliyey: ${escapeHTML(ad.owner)}</p>
+        <p>📞 ${escapeHTML(ad.phone)}</p>
+        <a class="btn primary" href="https://wa.me/${encodeURIComponent(ad.phone.replace(/[^\d]/g, ""))}" target="_blank" rel="noopener noreferrer">WhatsApp kala xiriir</a>
+      </article>
+    `).join("")
+    : '<div class="empty">Weli xayeysiis halkan laguma soo gelin. Waxaad ka bilaabi kartaa foomka kore.</div>';
+}
+
+function renderApplications() {
+  if (!applications.length) {
+    $("applications").textContent = "Weli codsi lama gudbin.";
+    return;
+  }
+
+  $("applications").innerHTML = applications.map(app => `
+    <article class="card" style="margin:10px 0">
+      <strong>${escapeHTML(app.title)}</strong>
+      <p class="muted">${escapeHTML(app.date)}</p>
+      <span class="badge">Codsi lagu kaydiyey qalabkan</span>
+    </article>
+  `).join("");
+}
+
+$("candidateForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const candidate = {
+    id: makeId(),
+    name: getValue("cName"),
+    phone: getValue("cPhone"),
+    city: getValue("cCity"),
+    district: getValue("cDistrict"),
+    neighborhood: getValue("cNeighborhood"),
+    role: getValue("cRole"),
+    education: getValue("cEducation"),
+    experience: getValue("cExperience"),
+    skills: getValue("cSkills"),
+    about: getValue("cAbout"),
+    date: new Date().toLocaleDateString()
+  };
+
+  candidates.push(candidate);
+
+  if (saveData("shaqohel_candidates", candidates)) {
+    $("candidateMsg").textContent =
+      "Xogta waxaa lagu kaydiyey browser-kan. Weli lama dirin server.";
+    event.target.reset();
+  }
+});
+
+$("jobForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const job = {
+    id: makeId(),
+    company: getValue("jCompany"),
+    contact: getValue("jContact"),
+    title: getValue("jTitle"),
+    city: getValue("jCity"),
+    district: getValue("jDistrict"),
+    neighborhood: getValue("jNeighborhood"),
+    type: getValue("jType"),
+    pay: getValue("jPay"),
+    requirements: getValue("jRequirements"),
+    description: getValue("jDescription"),
+    created: new Date().toISOString()
+  };
+
+  jobs.unshift(job);
+
+  if (saveData("shaqohel_jobs", jobs)) {
+    $("jobMsg").textContent = "Shaqada waxaa lagu daray boggan.";
+    event.target.reset();
+    $("jCity").value = "Muqdisho";
+    renderJobs();
+  }
+});
+
+$("adForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const ad = {
+    id: makeId(),
+    category: getValue("aCategory"),
+    title: getValue("aTitle"),
+    city: getValue("aCity"),
+    district: getValue("aDistrict"),
+    neighborhood: getValue("aNeighborhood"),
+    price: getValue("aPrice"),
+    phone: getValue("aPhone"),
+    owner: getValue("aOwner"),
+    description: getValue("aDescription"),
+    created: new Date().toISOString()
+  };
+
+  ads.unshift(ad);
+
+  if (saveData("shaqohel_ads", ads)) {
+    $("adMsg").textContent = "Xayeysiiska waa lagu daray boggan.";
+    event.target.reset();
+    $("aCity").value = "Muqdisho";
+    renderAds();
+    $("ads").scrollIntoView({behavior:"smooth"});
+  }
+});
+
+document.querySelectorAll("[data-cat]").forEach(button => {
+  button.addEventListener("click", () => {
+    selectedCategory = button.dataset.cat;
+
+    document.querySelectorAll("[data-cat]").forEach(item => {
+      item.classList.toggle("active", item === button);
+    });
+
+    if (selectedCategory === "Shaqo") {
+      $("jobs").scrollIntoView({behavior:"smooth"});
+    } else if (selectedCategory !== "Dhammaan") {
+      $("adSearch").value = selectedCategory;
+      renderAds();
+      $("ads").scrollIntoView({behavior:"smooth"});
+    } else {
+      $("adSearch").value = "";
+      renderAds();
+      $("browse").scrollIntoView({behavior:"smooth"});
+    }
+  });
+});
+
+["jobSearch","jobDistrict","jobNeighborhood","jobType"].forEach(id => {
+  $(id).addEventListener("input", renderJobs);
+  $(id).addEventListener("change", renderJobs);
+});
+
+["adSearch","adDistrict","adNeighborhood"].forEach(id => {
+  $(id).addEventListener("input", renderAds);
+});
+
+$("jobListings").addEventListener("click", event => {
+  const button = event.target.closest(".applyJob");
+  if (!button) return;
+
+  const job = jobs.find(item => item.id === button.dataset.id);
+  if (!job) return;
+
+  const application = {
+    id: makeId(),
+    jobId: job.id,
+    title: job.title,
+    date: new Date().toLocaleString()
+  };
+
+  applications.unshift(application);
+
+  if (saveData("shaqohel_applications", applications)) {
+    renderApplications();
+    alert("Codsiga demo-ga ah waa lagu kaydiyey qalabkan. Shaqobixiyaha weli looma dirin.");
+  }
+});
+
+/* POS MAKHAAYAD */
+
+function renderProducts() {
+  const products = defaultProducts.filter(
+    product => product.category === activeProductCategory
+  );
+
+  $("products").innerHTML = products.map(product => `
+    <button class="product" data-product="${product.id}">
+      <span class="producticon">${product.icon}</span>
+      <span class="productinfo">
+        <strong>${escapeHTML(product.name)}</strong>
+        <small>${money(product.price)}</small>
+      </span>
+    </button>
+  `).join("");
+}
+
+function renderCart() {
+  $("cartEmpty").classList.toggle("hidden", cart.length > 0);
+
+  $("cartItems").innerHTML = cart.map(item => `
+    <div class="receiptline">
+      <button class="small removeItem" data-id="${item.id}" aria-label="Ka saar">−</button>
+      <span>${escapeHTML(item.name)} × ${item.qty}</span>
+      <strong>${money(item.price * item.qty)}</strong>
+    </div>
+  `).join("");
+
+  const subtotal = cart.reduce((sum, item) =>
+    sum + item.price * item.qty, 0
+  );
+  const tax = subtotal * 0.05;
+
+  $("subtotal").textContent = money(subtotal);
+  $("tax").textContent = money(tax);
+  $("grandTotal").textContent = money(subtotal + tax);
+}
+
+$("products").addEventListener("click", event => {
+  const button = event.target.closest("[data-product]");
+  if (!button) return;
+
+  const product = defaultProducts.find(
+    item => item.id === Number(button.dataset.product)
+  );
+
+  if (!product) return;
+
+  const existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({...product, qty:1});
+  }
+
+  renderCart();
+});
+
+$("cartItems").addEventListener("click", event => {
+  const button = event.target.closest(".removeItem");
+  if (!button) return;
+
+  const item = cart.find(item => item.id === Number(button.dataset.id));
+  if (!item) return;
+
+  item.qty--;
+
+  if (item.qty <= 0) {
+    cart = cart.filter(row => row.id !== item.id);
+  }
+
+  renderCart();
+});
+
+$("clearCart").addEventListener("click", () => {
+  cart = [];
+  $("posMsg").textContent = "";
+  renderCart();
+});
+
+$("checkout").addEventListener("click", () => {
+  if (!cart.length) {
+    $("posMsg").textContent = "Marka hore alaab ku dar rasiidka.";
+    return;
+  }
+
+  const subtotal = cart.reduce((sum, item) =>
+    sum + item.price * item.qty, 0
+  );
+
+  const order = {
+    id: makeId(),
+    date: new Date().toLocaleString(),
+    table: selectedTable,
+    items: cart.map(item => ({...item})),
+    subtotal,
+    tax: subtotal * 0.05,
+    total: subtotal * 1.05
+  };
+
+  sales.unshift(order);
+
+  if (saveData("shaqohel_sales", sales)) {
+    $("posMsg").textContent =
+      "Iibka demo-ga ah waa la kaydiyey. Rasiid: " + order.id;
+    cart = [];
+    renderCart();
+    renderOrders();
+    renderTables();
+  }
+});
+
+document.querySelectorAll("[data-pcat]").forEach(button => {
+  button.addEventListener("click", () => {
+    activeProductCategory = button.dataset.pcat;
+
+    document.querySelectorAll("[data-pcat]").forEach(item => {
+      item.classList.toggle("active", item === button);
+    });
+
+    renderProducts();
+  });
+});
+
+function renderTables() {
+  const busyTables = new Set(
+    sales.slice(0, 20).map(order => order.table)
+  );
+
+  $("tables").innerHTML = Array.from({length:12}, (_, index) => {
+    const number = index + 1;
+    const busy = busyTables.has(number);
+
+    return `
+      <button class="tablebtn ${selectedTable === number ? "active" : ""}"
+        data-table="${number}">
+        ${busy ? "🟠" : "🪑"} Miis ${number}
+      </button>
+    `;
+  }).join("");
+}
+
+$("tables").addEventListener("click", event => {
+  const button = event.target.closest("[data-table]");
+  if (!button) return;
+
+  selectedTable = Number(button.dataset.table);
+  renderTables();
+  $("posMsg").textContent = "Waxaa la doortay miiska " + selectedTable + ".";
+});
+
+function renderOrders() {
+  $("ordersList").innerHTML = sales.length
+    ? sales.map(order => `
+      <article class="card" style="margin:10px 0">
+        <h3>Iibka ${escapeHTML(order.id)}</h3>
+        <p class="muted">${escapeHTML(order.date)}</p>
+        <p>Miiska: ${order.table}</p>
+        <p>Alaab: ${order.items.reduce((sum, item) => sum + item.qty, 0)}</p>
+        <p>Wadarta: <strong>${money(order.total)}</strong></p>
+        <button class="btn secondary printOrder" data-id="${escapeHTML(order.id)}">Daabac rasiid</button>
+      </article>
+    `).join("")
+    : '<div class="empty">Weli wax iib ah lama diiwaangelin.</div>';
+}
+
+$("ordersList").addEventListener("click", event => {
+  const button = event.target.closest(".printOrder");
+  if (!button) return;
+
+  const order = sales.find(item => item.id === button.dataset.id);
+  if (!order) return;
+
+  const receipt = `
+    <h2>ShaqoHel POS — Rasiid</h2>
+    <p>Rasiid: ${escapeHTML(order.id)}</p>
+    <p>Taariikh: ${escapeHTML(order.date)}</p>
+    <p>Miis: ${order.table}</p>
+    <hr>
+    ${order.items.map(item =>
+      `<p>${escapeHTML(item.name)} × ${item.qty} — ${money(item.price * item.qty)}</p>`
+    ).join("")}
+    <hr>
+    <p>Wadarta alaabta: ${money(order.subtotal)}</p>
+    <p>Canshuur demo 5%: ${money(order.tax)}</p>
+    <h3>Wadarta: ${money(order.total)}</h3>
+    <p>Mahadsanid!</p>
+  `;
+
+  const win = window.open("", "_blank", "width=500,height=700");
+
+  if (!win) {
+    alert("Browser-ku wuxuu xiray daaqadda daabacaadda. Oggolow pop-ups kadib isku day.");
+    return;
+  }
+
+  win.document.write(
+    "<!doctype html><html><head><meta charset='utf-8'><title>Rasiid</title></head><body style='font-family:Arial;padding:20px'>" +
+    receipt +
+    "</body></html>"
+  );
+
+  win.document.close();
+  win.focus();
+  win.print();
+});
+
+document.querySelectorAll("[data-posview]").forEach(button => {
+  button.addEventListener("click", () => {
+    activePOSView = button.dataset.posview;
+
+    document.querySelectorAll("[data-posview]").forEach(item => {
+      item.classList.toggle("active", item === button);
+    });
+
+    $("registerView").classList.toggle("hidden", activePOSView !== "register");
+    $("tablesView").classList.toggle("hidden", activePOSView !== "tables");
+    $("ordersView").classList.toggle("hidden", activePOSView !== "orders");
+
+    if (activePOSView === "tables") renderTables();
+    if (activePOSView === "orders") renderOrders();
+  });
+});
+
+$("year").textContent = new Date().getFullYear();
+
+renderJobs();
+renderAds();
+renderApplications();
+renderProducts();
+renderCart();
+renderTables();
+renderOrders();
 </script>
 </body>
 </html>
