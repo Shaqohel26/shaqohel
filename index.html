@@ -3,211 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ShaqoHel | Shaqooyin iyo Adeegyo</title>
+<meta name="theme-color" content="#087f5b">
+<title>ShaqoHel | Shaqooyin, Adeegyo iyo Cunto</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#17212b}
-header{background:#087f5b;color:white;padding:24px 16px}
-header h1{margin:0 0 8px}
-header p{margin:0;line-height:1.6}
-main{max-width:1050px;margin:auto;padding:18px}
-h2{font-size:21px}
-input,select,textarea{width:100%;padding:12px;border:1px solid #d5dbe0;border-radius:9px;font-size:15px;background:white}
-label{display:block;font-size:14px;font-weight:bold;margin:10px 0 6px}
-.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.cat{border:0;border-radius:12px;background:white;padding:14px 4px;font-size:13px;cursor:pointer;box-shadow:0 2px 8px #0001}
-.cat span{display:block;font-size:25px;margin-bottom:7px}
-.cat.active{outline:2px solid #087f5b;background:#e5f6ef}
-button{cursor:pointer}
-.primary{background:#087f5b;color:white;border:0;padding:13px 16px;border-radius:9px;font-size:15px}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
-.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:9px;margin:15px 0}
-.listings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.item{background:white;padding:15px;border-radius:12px;box-shadow:0 2px 8px #0001;overflow-wrap:anywhere}
-.item h3{margin:8px 0}
-.tag{display:inline-block;background:#e5f6ef;color:#087f5b;padding:5px 8px;border-radius:6px;font-size:12px}
-.muted{color:#64717d;font-size:14px;line-height:1.6}
-form{background:white;padding:16px;border-radius:12px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-footer{text-align:center;padding:25px;color:#64717d;font-size:13px}
-@media(max-width:600px){.listings{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+:root{--g:#087f5b;--gd:#066347;--mint:#e5f6ef;--bg:#f4f7f6;--ink:#17212b;--muted:#64717d;--line:#dce4e0}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#087f5b,#0a9b70);color:white;padding:22px 16px}header>div,main,footer>div{max-width:1100px;margin:auto}header h1{margin:0 0 7px;font-size:clamp(26px,5vw,36px)}header p{margin:0;line-height:1.6}
+main{padding:18px 14px 40px}h2{font-size:21px;margin:22px 0 12px}h3{margin:8px 0}
+button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #9bd9c3;outline-offset:2px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cfdad5;border-radius:10px;font-size:15px;background:white;color:var(--ink)}label{display:block;font-size:14px;font-weight:700;margin:11px 0 6px}
+.categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.cat{border:1px solid #e0e7e3;border-radius:12px;background:white;padding:13px 5px;font-size:13px;min-height:82px;box-shadow:0 2px 8px #00000008}.cat span{display:block;font-size:24px;margin-bottom:7px}.cat.active{outline:2px solid var(--g);background:var(--mint)}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}.primary{background:var(--g);color:white;border:0;padding:12px 16px;border-radius:10px;font-weight:700}.primary:hover{background:var(--gd)}.secondary{background:white;color:var(--g);border:1px solid var(--g);padding:11px 14px;border-radius:10px;font-weight:700}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:9px;margin:14px 0}.listings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.item,.panel{background:white;padding:15px;border-radius:14px;box-shadow:0 2px 10px #00000009;overflow-wrap:anywhere;border:1px solid #edf0ee}.tag{display:inline-block;background:var(--mint);color:var(--g);padding:5px 8px;border-radius:6px;font-size:12px;font-weight:700}.muted{color:var(--muted);font-size:14px;line-height:1.6}.price{font-size:18px;font-weight:700;color:var(--g)}form{background:white;padding:16px;border-radius:14px;border:1px solid #edf0ee}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.section-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.food-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr);gap:14px;align-items:start}.food-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.food-card{background:white;border:1px solid #e6ece8;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px}.food-icon{font-size:38px;background:#f1f8f4;border-radius:10px;padding:12px;text-align:center}.food-card .primary{width:100%;margin-top:auto}.cart-line{display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}.qty{display:flex;align-items:center;gap:8px}.qty button{border:1px solid var(--line);background:white;border-radius:8px;width:30px;height:30px;font-weight:700}.totals{display:grid;gap:8px;margin:14px 0}.total-row{display:flex;justify-content:space-between;gap:10px}.total-row.grand{border-top:1px solid var(--line);padding-top:10px;font-size:18px;font-weight:700}.notice{background:#fff7df;border:1px solid #f0dfa4;border-radius:10px;padding:11px;color:#6b571a;font-size:13px;line-height:1.5}.hidden{display:none!important}footer{text-align:center;padding:25px;color:var(--muted);font-size:13px}
+
+/* Makhaayad POS layout */
+.pos-shell{background:#f4f4f4;border:1px solid #dfe4e1;border-radius:14px;overflow:hidden}
+.pos-nav{display:flex;gap:0;align-items:center;flex-wrap:wrap;background:#fff;border-bottom:1px solid #ddd;padding:8px}
+.pos-tab{border:1px solid #ddd;background:#fff;padding:11px 14px;font-weight:700}
+.pos-tab.active{background:#e3f3f1;border-color:#6ab3b5;color:#173f42}
+.pos-badge{margin-left:auto;background:#d9f1f5;border:1px solid #82c8d1;border-radius:20px;padding:8px 12px;font-size:13px;font-weight:700}
+.pos-body{display:grid;grid-template-columns:minmax(270px,.85fr) minmax(0,1.5fr);gap:10px;padding:10px}
+.pos-receipt{background:#fff;border:1px solid #e1e5e3;border-radius:8px;padding:10px;min-width:0}
+.course-title{background:#b9e2c1;padding:8px;font-weight:700;margin:10px -10px 0}
+.receipt-item{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:6px;align-items:center;padding:10px 0;border-bottom:1px solid #eee;font-size:13px}
+.receipt-item button{border:0;background:#f6e8ef;border-radius:5px;padding:4px 7px}
+.pos-catalog{min-width:0}
+.pos-cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.pos-cat{border:0;border-radius:9px;padding:16px 6px;font-weight:700;background:#f7a0cb}
+.pos-cat:nth-child(2){background:#9ba9f6}.pos-cat:nth-child(3){background:#ffe38b}
+.pos-cat.active{outline:3px solid #5d8e91;outline-offset:1px}
+.course-filter{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}
+.course-filter button{border:1px solid #ddd;background:#fff;border-radius:7px;padding:7px 10px}
+.course-filter button.active{background:#e1f4e8;border-color:#80c99b}
+.pos-products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pos-product{padding:0;overflow:hidden;text-align:left;border:1px solid #e0e4e2;border-radius:9px;background:#fff;display:flex;flex-direction:column;min-width:0}
+.pos-product .food-icon{font-size:30px;border-radius:0;padding:18px 4px;background:#f2f3f5}
+.pos-product .product-info{padding:9px;display:grid;gap:5px}
+.pos-product strong{font-size:13px;overflow-wrap:anywhere}
+.pos-product small{color:#087f5b;font-weight:700}
+.pos-bottom{background:#fff;border-top:1px solid #e1e5e3;padding:12px}
+.pos-total{display:flex;justify-content:space-between;padding:5px 0}
+.pos-total.grand{font-size:20px;font-weight:800;border-top:1px solid #ddd;padding-top:10px}
+.pos-orders{padding:12px;background:#fff;border:1px solid #e1e5e3;border-radius:9px;margin-top:10px}
+@media(max-width:720px){.pos-body{grid-template-columns:1fr}.pos-products{grid-template-columns:repeat(2,minmax(0,1fr))}.pos-badge{margin-left:0}.pos-nav{gap:5px}.pos-tab{padding:9px 10px}}
+
+@media(max-width:650px){main{padding:12px 10px 30px}.categories{grid-template-columns:repeat(2,minmax(0,1fr))}.listings,.food-layout{grid-template-columns:1fr}.filters,.grid2{grid-template-columns:1fr}.food-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.food-card{padding:10px}.food-card h3{font-size:15px}.food-icon{font-size:30px;padding:8px}.primary,.secondary{min-height:42px}}
+@media(max-width:360px){.food-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-  <h1>🟢 ShaqoHel</h1>
-  <p>Shaqooyin, guryo kiro ah iyo adeegyada aad uga baahan tahay xaafaddaada.</p>
-</header>
+<header><div><h1>🟢 ShaqoHel</h1><p>Shaqooyin, guryo kiro ah, adeegyo iyo cunto aad ka dalban karto taleefankaaga.</p></div></header>
 <main>
-  <h2>Maxaad raadinaysaa?</h2>
-  <div class="categories" id="categories">
-    <button class="cat active" data-cat="Dhammaan"><span>🔎</span>Dhammaan</button>
-    <button class="cat" data-cat="Shaqo"><span>💼</span>Shaqooyin</button>
-    <button class="cat" data-cat="Guri kiro"><span>🏠</span>Guryo kiro</button>
-    <button class="cat" data-cat="Cilaansar"><span>💇</span>Cilaansar</button>
-    <button class="cat" data-cat="Dhar tolid"><span>🧵</span>Dhar tolid</button>
-    <button class="cat" data-cat="Nadaafad"><span>🧹</span>Nadaafad</button>
-    <button class="cat" data-cat="Cunto karin"><span>🍲</span>Cunto karin</button>
-    <button class="cat" data-cat="Farsamo"><span>🔧</span>Farsamayaqaan</button>
-    <button class="cat" data-cat="Adeeg kale"><span>🛠️</span>Adeegyo kale</button>
-  </div>
-  <div class="actions">
-    <button class="primary" onclick="document.getElementById('postForm').scrollIntoView({behavior:'smooth'})">＋ Soo geli xayeysiis</button>
-  </div>
-  <h2>Raadi xayeysiisyada</h2>
-  <div class="filters">
-    <input id="search" placeholder="Raadi shaqo, guri ama adeeg...">
-    <input id="district" placeholder="Degmada">
-    <input id="neighborhood" placeholder="Xaafadda">
-  </div>
-  <p class="muted" id="count"></p>
-  <div class="listings" id="listings"></div>
-  <h2 id="formTitle">Soo geli shaqo, guri ama adeeg</h2>
-  <p class="muted">Buuxi faahfaahinta xayeysiiskaaga.</p>
-  <form id="postForm">
-    <label>Qaybta xayeysiiska</label>
-    <select id="category" required>
-      <option value="Shaqo">Shaqo</option>
-      <option value="Guri kiro">Guri kiro</option>
-      <option value="Cilaansar">Cilaansar iyo qurxin</option>
-      <option value="Dhar tolid">Dhar tolid</option>
-      <option value="Nadaafad">Nadaafad</option>
-      <option value="Cunto karin">Cunto karin</option>
-      <option value="Farsamo">Farsamayaqaan</option>
-      <option value="Adeeg kale">Adeeg kale</option>
-    </select>
-    <label>Magaca xayeysiiska ama shaqada</label>
-    <input id="title" required maxlength="100" placeholder="Tusaale: Guri kiro ah ama koronto-yaqaan">
-    <div class="grid2">
-      <div>
-        <label>Magaalada</label>
-        <input id="city" required placeholder="Tusaale: Muqdisho">
+<h2>Maxaad raadinaysaa?</h2>
+<div class="categories" id="categories">
+<button class="cat active" data-cat="Dhammaan"><span>🔎</span>Dhammaan</button>
+<button class="cat" data-cat="Shaqo"><span>💼</span>Shaqooyin</button>
+<button class="cat" data-cat="Guri kiro"><span>🏠</span>Guryo kiro</button>
+<button class="cat" data-cat="Cilaansar"><span>💇</span>Cilaansar</button>
+<button class="cat" data-cat="Dhar tolid"><span>🧵</span>Dhar tolid</button>
+<button class="cat" data-cat="Nadaafad"><span>🧹</span>Nadaafad</button>
+<button class="cat" data-cat="Cunto karin"><span>🍲</span>Cunto karin</button>
+<button class="cat" data-cat="Farsamo"><span>🔧</span>Farsamayaqaan</button>
+<button class="cat" data-cat="Makhaayad"><span>🍽️</span>Makhaayado / Cunto</button>
+<button class="cat" data-cat="Adeeg kale"><span>🛠️</span>Adeegyo kale</button>
+</div>
+<div class="actions"><button class="primary" id="goFood">🍽️ Dalbo cunto</button><button class="secondary" id="goPost">＋ Soo geli xayeysiis</button></div>
+
+<section id="foodSection">
+<div class="section-top"><h2>Makhaayadda — Nidaamka iibka</h2><span class="tag">POS • Taleefan & kombiyuutar</span></div>
+<p class="muted">Taabo cunto ama cabitaan si loogu daro rasiidka. Tirada, canshuurta iyo wadarta si toos ah ayay isu beddelayaan.</p>
+<div class="pos-shell">
+  <nav class="pos-nav" aria-label="Qaybaha makhaayadda">
+    <button class="pos-tab" data-posview="tables">Tables</button>
+    <button class="pos-tab active" data-posview="register">Register</button>
+    <button class="pos-tab" data-posview="orders">Orders</button>
+    <button class="pos-tab" data-posview="booking">Booking</button>
+    <span class="pos-badge" id="tableBadge">Miis 15 • Dalab cusub</span>
+  </nav>
+  <div class="pos-body" id="registerView">
+    <aside class="pos-receipt">
+      <h3>🧾 Rasiidka dalabka</h3>
+      <p class="muted" id="receiptEmpty">Taabo cuntooyinka si aad u bilowdo.</p>
+      <div id="receiptItems"></div>
+      <div class="pos-bottom">
+        <div class="pos-total"><span>Wadarta cuntada</span><strong id="subtotal">$0.00</strong></div>
+        <div class="pos-total"><span>Canshuurta</span><strong id="tax">$0.00</strong></div>
+        <div class="pos-total grand"><span>Wadarta guud</span><strong id="grandTotal">$0.00</strong></div>
+        <button class="primary" id="checkoutButton" type="button" style="width:100%;margin-top:10px">Xaqiiji iibka</button>
+        <button class="secondary" id="clearCart" type="button" style="width:100%;margin-top:8px">Nadiifi rasiidka</button>
       </div>
-      <div>
-        <label>Degmada</label>
-        <input id="postDistrict" required placeholder="Tusaale: Hodan">
+    </aside>
+    <div class="pos-catalog">
+      <div class="pos-cats">
+        <button class="pos-cat active" data-productcat="Food">🍽️ Cunto</button>
+        <button class="pos-cat" data-productcat="Drinks">🥤 Cabitaan</button>
+        <button class="pos-cat" data-productcat="Misc">🧾 Waxyaabo kale</button>
       </div>
+      <div class="course-filter" id="courseFilters">
+        <button class="active" data-course="Dhammaan">Dhammaan</button>
+        <button data-course="Starter">Starter</button>
+        <button data-course="Main">Main</button>
+        <button data-course="Dessert">Dessert</button>
+      </div>
+      <div class="pos-products" id="foodGrid"></div>
     </div>
-    <label>Xaafadda</label>
-    <input id="postNeighborhood" required placeholder="Magaca xaafadda">
-    <div class="grid2">
-      <div>
-        <label>Qiimaha ama mushaharka</label>
-        <input id="price" placeholder="Tusaale: $150 bishii">
-      </div>
-      <div>
-        <label>Nooca adeegga</label>
-        <select id="kind">
-          <option>Caadi</option>
-          <option>Hal maalin</option>
-          <option>Joogto</option>
-          <option>Waqti-dhiman</option>
-        </select>
-      </div>
-    </div>
-    <label>Faahfaahin</label>
-    <textarea id="description" rows="4" required maxlength="1500" placeholder="Sharax shaqada, guriga ama adeegga..."></textarea>
-    <label>Lambarka xiriirka</label>
-    <input id="contact" type="tel" required maxlength="30" placeholder="Lambarka lagala soo xiriirayo">
-    <label>Magaca qofka ama shirkadda</label>
-    <input id="owner" required maxlength="80" placeholder="Magacaaga ama shirkaddaada">
-    <p class="muted">Tijaabadan, sawirrada, CV-yada iyo shahaadooyinka weli lama soo gelin karo.</p>
-    <button class="primary" type="submit">Soo geli xayeysiiska</button>
-  </form>
+  </div>
+  <div class="pos-orders hidden" id="ordersView"><h3>📋 Dalabyadii / iibkii hore</h3><div id="ordersList"><p class="muted">Weli iib lama diiwaangelin.</p></div></div>
+  <div class="pos-orders hidden" id="tablesView"><h3>🪑 Dooro miiska</h3><p class="muted">Dooro miis si aad rasiidka ugu calaamadeyso.</p><div class="pos-cats" id="tableButtons"></div></div>
+  <div class="pos-orders hidden" id="bookingView"><h3>📅 Ballan makhaayad</h3><form id="bookingForm"><label for="bookingName">Magaca qofka</label><input id="bookingName" required maxlength="80"><label for="bookingPhone">Telefoon</label><input id="bookingPhone" required type="tel" maxlength="30"><label for="bookingDate">Taariikhda iyo waqtiga</label><input id="bookingDate" required type="datetime-local"><label for="bookingGuests">Tirada dadka</label><input id="bookingGuests" required type="number" min="1" max="50" value="2"><button class="primary" type="submit" style="margin-top:12px">Kaydi ballanta</button></form><div id="bookingResult" class="muted"></div></div>
+</div>
+<div id="orderResult" class="panel hidden" aria-live="polite" style="margin-top:14px"></div>
+<p class="notice" style="margin-top:12px">Fiiro: noocan tijaabada ah wuxuu iibka, ballamaha iyo dalabyada ku kaydiyaa browser-kan. Si shaqaalaha iyo macaamiisha oo dhan xogtu ugu wada muuqato, waxaa loo baahan yahay database online ah. Canshuurta $0.05 waa qiime tijaabo ah, mana aha xaqiijin canshuur dowladeed.</p>
+</section>
+
+<section id="adsSection"><h2>Raadi xayeysiisyada</h2><div class="filters"><input id="search" placeholder="Raadi shaqo, guri ama adeeg..."><input id="district" placeholder="Degmada"><input id="neighborhood" placeholder="Xaafadda"></div><p class="muted" id="count"></p><div class="listings" id="listings"></div></section>
+
+<section id="postSection"><h2>Soo geli shaqo, guri ama adeeg</h2><p class="muted">Buuxi faahfaahinta xayeysiiskaaga.</p><form id="postForm">
+<label for="category">Qaybta xayeysiiska</label><select id="category" required><option value="Shaqo">Shaqo</option><option value="Guri kiro">Guri kiro</option><option value="Cilaansar">Cilaansar iyo qurxin</option><option value="Dhar tolid">Dhar tolid</option><option value="Nadaafad">Nadaafad</option><option value="Cunto karin">Cunto karin</option><option value="Farsamo">Farsamayaqaan</option><option value="Makhaayad">Makhaayad</option><option value="Adeeg kale">Adeeg kale</option></select>
+<label for="title">Magaca xayeysiiska ama shaqada</label><input id="title" required maxlength="100" placeholder="Tusaale: Guri kiro ah ama koronto-yaqaan">
+<div class="grid2"><div><label for="city">Magaalada</label><input id="city" required placeholder="Tusaale: Muqdisho"></div><div><label for="postDistrict">Degmada</label><input id="postDistrict" required placeholder="Tusaale: Hodan"></div></div>
+<label for="postNeighborhood">Xaafadda</label><input id="postNeighborhood" required placeholder="Magaca xaafadda">
+<div class="grid2"><div><label for="price">Qiimaha ama mushaharka</label><input id="price" placeholder="Tusaale: $150 bishii"></div><div><label for="kind">Nooca adeegga</label><select id="kind"><option>Caadi</option><option>Hal maalin</option><option>Joogto</option><option>Waqti-dhiman</option></select></div></div>
+<label for="description">Faahfaahin</label><textarea id="description" rows="4" required maxlength="1500" placeholder="Sharax shaqada, guriga ama adeegga..."></textarea>
+<label for="contact">Lambarka xiriirka</label><input id="contact" type="tel" required maxlength="30" placeholder="Lambarka lagala soo xiriirayo">
+<label for="owner">Magaca qofka ama shirkadda</label><input id="owner" required maxlength="80" placeholder="Magacaaga ama shirkaddaada">
+<p class="muted">Xayeysiisyada iyo dalabyada noocan ahi waxay ku kaydsan yihiin browser-kan oo keliya ilaa database dhab ah lagu xiro.</p><button class="primary" type="submit">Soo geli xayeysiiska</button></form></section>
 </main>
-<footer>ShaqoHel — Fursado iyo adeegyo ku dhow xaafaddaada.</footer>
+<footer><div>ShaqoHel — Fursado, adeegyo iyo cunto ku dhow xaafaddaada.</div></footer>
 <script>
-const demo = [
- {id:1,category:"Shaqo",title:"Shaqaale xafiis",city:"Muqdisho",district:"Hodan",neighborhood:"Taleex",price:"Mushahar la isla ogaanayo",kind:"Joogto",description:"Shaqo xafiis. Faahfaahinta kala xiriir qofka xayeysiiska dhigay.",contact:"Tusaale",owner:"ShaqoHel"},
- {id:2,category:"Guri kiro",title:"Guri kiro ah",city:"Muqdisho",district:"Wadajir",neighborhood:"Xaafad tusaale ah",price:"$150 bishii",kind:"Caadi",description:"Tusaale tijaabo ah oo muujinaya sida guryaha loo soo bandhigayo.",contact:"Tusaale",owner:"Milkiile tusaale ah"},
- {id:3,category:"Farsamo",title:"Koronto-yaqaan",city:"Muqdisho",district:"Yaqshiid",neighborhood:"Xaafad tusaale ah",price:"Qiime la isla ogaanayo",kind:"Hal maalin",description:"Adeeg koronto. Tani waa xayeysiis tusaale ah, ma aha adeeg la xaqiijiyey.",contact:"Tusaale",owner:"Farsamayaqaan tusaale ah"}
+const demo=[
+{id:"demo1",category:"Shaqo",title:"Shaqaale xafiis",city:"Muqdisho",district:"Hodan",neighborhood:"Taleex",price:"Mushahar la isla ogaanayo",kind:"Joogto",description:"Shaqo xafiis. Faahfaahinta kala xiriir qofka xayeysiiska dhigay.",contact:"Tusaale",owner:"ShaqoHel"},
+{id:"demo2",category:"Guri kiro",title:"Guri kiro ah",city:"Muqdisho",district:"Wadajir",neighborhood:"Xaafad tusaale ah",price:"$150 bishii",kind:"Caadi",description:"Tusaale tijaabo ah oo muujinaya sida guryaha loo soo bandhigayo.",contact:"Tusaale",owner:"Milkiile tusaale ah"},
+{id:"demo3",category:"Farsamo",title:"Koronto-yaqaan",city:"Muqdisho",district:"Yaqshiid",neighborhood:"Xaafad tusaale ah",price:"Qiime la isla ogaanayo",kind:"Hal maalin",description:"Adeeg koronto. Tani waa xayeysiis tusaale ah, ma aha adeeg la xaqiijiyey.",contact:"Tusaale",owner:"Farsamayaqaan tusaale ah"}];
+const foods=[
+{id:"rice",name:"Bariis",description:"Bariis saxan",price:1,icon:"🍚",category:"Food",course:"Main"},
+{id:"chicken",name:"Chicken",description:"Digaag",price:1,icon:"🍗",category:"Food",course:"Main"},
+{id:"soup",name:"Maraq",description:"Maraq kulul",price:1,icon:"🥣",category:"Food",course:"Starter"},
+{id:"salad",name:"Salad",description:"Salad cusub",price:1,icon:"🥗",category:"Food",course:"Starter"},
+{id:"cake",name:"Keeg",description:"Macmacaan",price:1,icon:"🍰",category:"Food",course:"Dessert"},
+{id:"banana",name:"Moos",description:"Miro",price:1,icon:"🍌",category:"Food",course:"Dessert"},
+{id:"water",name:"Biyo",description:"Dhalo biyo ah",price:0.5,icon:"💧",category:"Drinks",course:""},
+{id:"juice",name:"Casiir",description:"Casiir miro",price:1,icon:"🧃",category:"Drinks",course:""},
+{id:"soda",name:"Soda",description:"Cabitaan qasac",price:1,icon:"🥤",category:"Drinks",course:""},
+{id:"tea",name:"Shaah",description:"Koob shaah",price:0.5,icon:"☕",category:"Drinks",course:""},
+{id:"delivery",name:"Gaarsiin",description:"Kharash gaarsiin",price:1,icon:"🛵",category:"Misc",course:""},
+{id:"packaging",name:"Baakad",description:"Baakad cunto",price:0.25,icon:"🥡",category:"Misc",course:""}
 ];
-let ads = [];
-try {
-  ads = JSON.parse(localStorage.getItem("shaqohel_ads") || "[]");
-  if (!Array.isArray(ads)) ads = [];
-} catch(e) { ads = []; }
-let activeCategory = "Dhammaan";
-const $ = id => document.getElementById(id);
-function render() {
-  const q = $("search").value.toLowerCase().trim();
-  const d = $("district").value.toLowerCase().trim();
-  const n = $("neighborhood").value.toLowerCase().trim();
-  const all = [...ads, ...demo];
-  const filtered = all.filter(a =>
-    (activeCategory === "Dhammaan" || a.category === activeCategory) &&
-    (!q || [a.title,a.category,a.city,a.district,a.neighborhood,a.description,a.owner].join(" ").toLowerCase().includes(q)) &&
-    (!d || a.district.toLowerCase().includes(d)) &&
-    (!n || a.neighborhood.toLowerCase().includes(n))
-  );
-  $("count").textContent = filtered.length + " xayeysiis ayaa la helay.";
-  $("listings").innerHTML = filtered.length ? filtered.map(a => `
-    <article class="item">
-      <span class="tag">${escapeHTML(a.category)}</span>
-      <h3>${escapeHTML(a.title)}</h3>
-      <p class="muted">📍 ${escapeHTML(a.city)} · ${escapeHTML(a.district)} · ${escapeHTML(a.neighborhood)}</p>
-      <p><strong>${escapeHTML(a.price || "Qiime la weydiinayo")}</strong></p>
-      <p class="muted">${escapeHTML(a.description)}</p>
-      <p class="muted">${escapeHTML(a.kind)} · ${escapeHTML(a.owner)}</p>
-      <button class="primary" onclick="showContact('${String(a.id)}')">Xiriir</button>
-    </article>
-  `).join("") : '<p class="muted">Wax xayeysiis ah lagama helin raadintaas.</p>';
-}
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, c => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  })[c]);
-}
-function showContact(id) {
-  const a = [...ads,...demo].find(x => String(x.id) === String(id));
-  if (!a) return;
-  alert("Xiriir: " + a.contact + "\nMagac: " + a.owner +
-        "\nFiiro: xayeysiisyada tusaalaha ah ma laha xiriir dhab ah.");
-}
-document.querySelectorAll(".cat").forEach(button => {
-  button.addEventListener("click", () => {
-    activeCategory = button.dataset.cat;
-    document.querySelectorAll(".cat").forEach(b => b.classList.remove("active"));
-    button.classList.add("active");
-    render();
-  });
-});
-["search","district","neighborhood"].forEach(id => {
-  $(id).addEventListener("input", render);
-});
-$("postForm").addEventListener("submit", event => {
-  event.preventDefault();
-  const ad = {
-    id: Date.now(),
-    category:$("category").value,
-    title:$("title").value.trim(),
-    city:$("city").value.trim(),
-    district:$("postDistrict").value.trim(),
-    neighborhood:$("postNeighborhood").value.trim(),
-    price:$("price").value.trim(),
-    kind:$("kind").value,
-    description:$("description").value.trim(),
-    contact:$("contact").value.trim(),
-    owner:$("owner").value.trim()
-  };
-  ads.unshift(ad);
-  try {
-    localStorage.setItem("shaqohel_ads", JSON.stringify(ads));
-  } catch(e) {
-    ads.shift();
-    alert("Kaydinta browser-ka waa fashilantay. Isku day inaad boos bannayso.");
-    return;
-  }
-  $("postForm").reset();
-  activeCategory = "Dhammaan";
-  document.querySelectorAll(".cat").forEach(b =>
-    b.classList.toggle("active", b.dataset.cat === activeCategory)
-  );
-  render();
-  $("listings").scrollIntoView({behavior:"smooth"});
-  alert("Xayeysiiska waxaa lagu daray tijaabada browser-kan.");
-});
-render();
+const $=id=>document.getElementById(id);
+function readStore(k){try{const x=JSON.parse(localStorage.getItem(k)||"[]");return Array.isArray(x)?x:[]}catch(e){return[]}}
+function saveStore(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function money(n){return "$"+Number(n).toFixed(2)}
+let ads=readStore("shaqohel_ads"),orders=readStore("shaqohel_orders"),bookings=readStore("shaqohel_bookings"),cart={},activeCategory="Dhammaan",productCategory="Food",activeCourse="Dhammaan",currentTable=15;
+function renderAds(){const q=$("search").value.toLowerCase().trim(),d=$("district").value.toLowerCase().trim(),n=$("neighborhood").value.toLowerCase().trim();const filtered=[...ads,...demo].filter(a=>(activeCategory==="Dhammaan"||a.category===activeCategory)&&(!q||[a.title,a.category,a.city,a.district,a.neighborhood,a.description,a.owner].join(" ").toLowerCase().includes(q))&&(!d||a.district.toLowerCase().includes(d))&&(!n||a.neighborhood.toLowerCase().includes(n)));$("count").textContent=filtered.length+" xayeysiis ayaa la helay.";$("listings").innerHTML=filtered.length?filtered.map(a=>`<article class="item"><span class="tag">${esc(a.category)}</span><h3>${esc(a.title)}</h3><p class="muted">📍 ${esc(a.city)} · ${esc(a.district)} · ${esc(a.neighborhood)}</p><p><strong>${esc(a.price||"Qiime la weydiinayo")}</strong></p><p class="muted">${esc(a.description)}</p><p class="muted">${esc(a.kind)} · ${esc(a.owner)}</p><button class="primary contactBtn" data-id="${esc(a.id)}">Xiriir</button></article>`).join(""):'<p class="muted">Wax xayeysiis ah lagama helin raadintaas.</p>'}
+function renderFoods(){const list=foods.filter(f=>f.category===productCategory&&(productCategory!=="Food"||activeCourse==="Dhammaan"||f.course===activeCourse));$("foodGrid").innerHTML=list.map(f=>`<button class="pos-product addFood" data-id="${f.id}" aria-label="Ku dar ${esc(f.name)}"><div class="food-icon">${f.icon}</div><div class="product-info"><strong>${esc(f.name)}</strong><span class="muted">${esc(f.description)}</span><small>${money(f.price)}</small></div></button>`).join("")||'<p class="muted">Qaybtan wax alaab ah kuma jirto.</p>';$("courseFilters").classList.toggle("hidden",productCategory!=="Food")}
+function cartTotals(){const sub=foods.reduce((s,f)=>s+f.price*(cart[f.id]||0),0);return{sub,tax:sub>0?.05:0,total:sub+(sub>0?.05:0)}}
+function renderCart(){const entries=foods.filter(f=>(cart[f.id]||0)>0);$("receiptEmpty").classList.toggle("hidden",entries.length>0);$("receiptItems").innerHTML=entries.map(f=>`<div class="receipt-item"><button class="removeOne" data-id="${f.id}" title="Ka saar hal xabbo">−</button><span>${esc(f.name)} × ${cart[f.id]}</span><strong>${money(f.price*cart[f.id])}</strong></div>`).join("");const t=cartTotals();$("subtotal").textContent=money(t.sub);$("tax").textContent=money(t.tax);$("grandTotal").textContent=money(t.total);$("tableBadge").textContent="Miis "+currentTable+" • "+(entries.length?"Dalab socda":"Dalab cusub")}
+$("foodGrid").addEventListener("click",e=>{const b=e.target.closest(".addFood");if(!b)return;cart[b.dataset.id]=(cart[b.dataset.id]||0)+1;renderCart()});
+$("receiptItems").addEventListener("click",e=>{const b=e.target.closest(".removeOne");if(!b)return;cart[b.dataset.id]=(cart[b.dataset.id]||0)-1;if(cart[b.dataset.id]<=0)delete cart[b.dataset.id];renderCart()});
+document.querySelectorAll("[data-productcat]").forEach(b=>b.addEventListener("click",()=>{productCategory=b.dataset.productcat;document.querySelectorAll("[data-productcat]").forEach(x=>x.classList.toggle("active",x===b));activeCourse="Dhammaan";document.querySelectorAll("[data-course]").forEach(x=>x.classList.toggle("active",x.dataset.course===activeCourse));renderFoods()}));
+document.querySelectorAll("[data-course]").forEach(b=>b.addEventListener("click",()=>{activeCourse=b.dataset.course;document.querySelectorAll("[data-course]").forEach(x=>x.classList.toggle("active",x===b));renderFoods()}));
+$("clearCart").addEventListener("click",()=>{cart={};renderCart()});
+$("checkoutButton").addEventListener("click",()=>{const t=cartTotals();if(t.sub<=0){alert("Marka hore taabo cunto ama cabitaan si aad rasiidka ugu darto.");return}const order={id:Date.now(),table:currentTable,items:foods.filter(f=>cart[f.id]).map(f=>({name:f.name,quantity:cart[f.id],unitPrice:f.price})),subtotal:t.sub,tax:t.tax,total:t.total,date:new Date().toLocaleString()};orders.unshift(order);const saved=saveStore("shaqohel_orders",orders);$("orderResult").classList.remove("hidden");$("orderResult").innerHTML=`<h3>✅ Iibka waa la diiwaangeliyey</h3><p>Rasiid #: <strong>${order.id}</strong> · Miis: ${order.table}</p><p>${order.items.map(i=>esc(i.name)+" × "+i.quantity).join(", ")}</p><p>Wadarta cuntada: <strong>${money(t.sub)}</strong></p><p>Canshuurta: <strong>${money(t.tax)}</strong></p><p>Wadarta guud: <strong>${money(t.total)}</strong></p><p class="notice">${saved?"Iibka waxaa lagu kaydiyey browser-kan.":"Kaydinta browser-ku way fashilantay."}</p>`;cart={};renderCart();renderOrders();$("orderResult").scrollIntoView({behavior:"smooth"})});
+function renderOrders(){$("ordersList").innerHTML=orders.length?orders.map(o=>`<div class="receipt-item"><span><strong>Rasiid ${esc(o.id)}</strong><br><span class="muted">Miis ${esc(o.table??"—")} · ${esc(o.date||"")}</span><br>${(o.items||[]).map(i=>esc(i.name)+" × "+i.quantity).join(", ")}</span><strong>${money(o.total||0)}</strong></div>`).join(""):'<p class="muted">Weli iib lama diiwaangelin.</p>'}
+$("tableButtons").innerHTML=Array.from({length:12},(_,i)=>`<button class="pos-tab" data-table="${i+1}">Miis ${i+1}</button>`).join("");
+$("tableButtons").addEventListener("click",e=>{const b=e.target.closest("[data-table]");if(!b)return;currentTable=Number(b.dataset.table);renderCart();document.querySelectorAll("[data-table]").forEach(x=>x.classList.toggle("active",x===b));$("registerView").classList.remove("hidden");$("tablesView").classList.add("hidden");document.querySelectorAll("[data-posview]").forEach(x=>x.classList.toggle("active",x.dataset.posview==="register"))});
+document.querySelectorAll("[data-posview]").forEach(b=>b.addEventListener("click",()=>{const view=b.dataset.posview;document.querySelectorAll("[data-posview]").forEach(x=>x.classList.toggle("active",x===b));["register","orders","tables","booking"].forEach(v=>$(v+"View").classList.toggle("hidden",v!==view));if(view==="orders")renderOrders();if(view==="tables")document.querySelectorAll("[data-table]").forEach(x=>x.classList.toggle("active",Number(x.dataset.table)===currentTable))}));
+$("bookingForm").addEventListener("submit",e=>{e.preventDefault();const booking={id:Date.now(),name:$("bookingName").value.trim(),phone:$("bookingPhone").value.trim(),date:$("bookingDate").value,guests:Number($("bookingGuests").value)};bookings.unshift(booking);const ok=saveStore("shaqohel_bookings",bookings);$("bookingResult").textContent=ok?"Ballanta waa lagu kaydiyey browser-kan.":"Ballanta lama kaydin. Isku day mar kale.";$("bookingForm").reset()});
+$("postForm").addEventListener("submit",e=>{e.preventDefault();const a={id:Date.now(),category:$("category").value,title:$("title").value.trim(),city:$("city").value.trim(),district:$("postDistrict").value.trim(),neighborhood:$("postNeighborhood").value.trim(),price:$("price").value.trim(),kind:$("kind").value,description:$("description").value.trim(),contact:$("contact").value.trim(),owner:$("owner").value.trim()};ads.unshift(a);if(!saveStore("shaqohel_ads",ads)){ads.shift();alert("Kaydinta browser-ka waa fashilantay.");return}$("postForm").reset();activeCategory="Dhammaan";document.querySelectorAll(".cat").forEach(b=>b.classList.toggle("active",b.dataset.cat===activeCategory));renderAds();$("listings").scrollIntoView({behavior:"smooth"});alert("Xayeysiiska waxaa lagu kaydiyey browser-kan.")});
+$("listings").addEventListener("click",e=>{const b=e.target.closest(".contactBtn");if(!b)return;const a=[...ads,...demo].find(x=>String(x.id)===b.dataset.id);if(a)alert("Xiriir: "+a.contact+"\nMagac: "+a.owner+(String(a.id).startsWith("demo")?"\nFiiro: xayeysiiskan waa tusaale.":""))});
+document.querySelectorAll(".cat").forEach(b=>b.addEventListener("click",()=>{activeCategory=b.dataset.cat;document.querySelectorAll(".cat").forEach(x=>x.classList.toggle("active",x===b));if(activeCategory==="Makhaayad"||activeCategory==="Cunto karin")$("foodSection").scrollIntoView({behavior:"smooth"});else renderAds()}));
+["search","district","neighborhood"].forEach(id=>$(id).addEventListener("input",renderAds));
+$("goFood").addEventListener("click",()=>$("foodSection").scrollIntoView({behavior:"smooth"}));$("goPost").addEventListener("click",()=>$("postSection").scrollIntoView({behavior:"smooth"}));
+renderFoods();renderCart();renderAds();renderOrders();
 </script>
 </body>
 </html>
